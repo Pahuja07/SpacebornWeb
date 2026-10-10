@@ -1,10 +1,11 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ArrowDownRight, ArrowRight, Bot, BrainCircuit, Check, ChevronDown, CircleDot, Database, Gamepad2, Globe2, Layers3, LockKeyhole, Network, Radio, ShieldCheck, Sparkles, Terminal, Waves, Zap } from 'lucide-react';
+import { ArrowDownRight, ArrowRight, Bot, BrainCircuit, Check, ChevronDown, CircleDot, Database, Gamepad2, Globe2, Layers3, LockKeyhole, Menu, Network, Radio, ShieldCheck, Sparkles, Terminal, Waves, X, Zap } from 'lucide-react';
 import ImmersiveMissionReplay from './MissionReplay';
 import './mission-control.css';
+import './mission-hero.css';
 
 const lifecycle = [
   { key: 'plan', label: 'PLAN', title: 'Turn intent into a mission.', copy: 'An operator describes the objective. DERYK structures the request into a mission contract without touching a vehicle.', icon: Terminal },
@@ -20,6 +21,14 @@ const faqs = [
   ['What environments does DERYK target?', 'Physical systems, simulations, games, and selected digital or enterprise environments.'],
   ['Who is DERYK for?', 'Developers and organizations building robotics, autonomous systems, simulations, games, and environment-aware AI applications.'],
   ['Does DERYK work with one model only?', 'The platform is designed to integrate with multiple AI models and services.'],
+];
+
+const capabilitySteps = [
+  { name: 'Sense', slug: 'sense', copy: 'Cameras, radar, LiDAR, GPS, telemetry', image: '/images/deryk-sense.jpeg' },
+  { name: 'Understand', slug: 'understand', copy: 'World models that create context', image: '/images/deryk-understand.jpeg' },
+  { name: 'Predict', slug: 'predict', copy: 'Future states, risks, and outcomes', image: '/images/deryk-predict.jpeg' },
+  { name: 'Decide', slug: 'decide', copy: 'Action models and planning', image: '/images/deryk-decide.jpeg' },
+  { name: 'Execute', slug: 'execute', copy: 'Rules, safety, deployment', image: '/images/deryk-execute.jpeg' },
 ];
 
 const loop = [
@@ -174,15 +183,147 @@ function Logbook() {
 function DerykPage() {
   const [activeStage, setActiveStage] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [capabilitiesOpen, setCapabilitiesOpen] = useState(false);
+  const [worldsOpen, setWorldsOpen] = useState(false);
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+
+    const revealTargets = document.querySelectorAll<HTMLElement>('.mission-control:not(.intelligence-page) main > section:not(.mission-hero):not(.mission-replay) > :not(.areas-background-video), .mission-control:not(.intelligence-page) .mission-footer > *');
+    const observer = new IntersectionObserver((entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in-view');
+          currentObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+
+    const orderBySection = new Map<Element, number>();
+    revealTargets.forEach((target) => {
+      const section = target.parentElement;
+      const order = section ? orderBySection.get(section) ?? 0 : 0;
+      target.classList.add('scroll-reveal-item');
+      target.style.setProperty('--reveal-delay', `${Math.min(order, 4) * 65}ms`);
+      if (section) orderBySection.set(section, order + 1);
+      observer.observe(target);
+    });
+
+    return () => observer.disconnect();
+  }, []);
   const active = lifecycle[activeStage];
   const ActiveIcon = active.icon;
   const matrix = useMemo(() => Array.from({ length: 66 }, (_, index) => index), []);
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+    setCapabilitiesOpen(false);
+    setWorldsOpen(false);
+  };
 
   return <div className="mission-control" id="top">
-    <header className="mission-nav"><a href="#top" aria-label="DERYK home"><Mark /></a><nav><a href="#architecture">Architecture</a><a href="#worlds">Worlds</a><a href="#capabilities">Capabilities</a><a href="#careers">Careers</a><a className="mission-nav-button" href="#architecture">Explore DERYK <ArrowRight size={13} /></a></nav></header>
+    <header className="mission-nav">
+      <a href="#top" aria-label="DERYK home" onClick={closeMobileMenu}><Mark /></a>
+      <button className="mobile-nav-toggle" type="button" aria-label={mobileMenuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={mobileMenuOpen} onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+        {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+      </button>
+      <nav className={mobileMenuOpen ? 'is-open' : ''}>
+        <a href="#architecture" onClick={closeMobileMenu}>Architecture</a>
+        <div
+          className={`capabilities-dropdown worlds-dropdown${worldsOpen ? ' is-open' : ''}`}
+          onMouseEnter={() => setWorldsOpen(true)}
+          onMouseLeave={() => setWorldsOpen(false)}
+          onFocus={(event) => {
+            if (event.target instanceof HTMLElement && event.target.matches(':focus-visible')) {
+              setWorldsOpen(true);
+            }
+          }}
+          onBlur={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+              setWorldsOpen(false);
+            }
+          }}
+        >
+          <button
+            className="capabilities-trigger"
+            type="button"
+            aria-expanded={worldsOpen}
+            onClick={() => {
+              if (window.matchMedia('(hover: none)').matches) {
+                setWorldsOpen((isOpen) => !isOpen);
+              } else {
+                setWorldsOpen(true);
+              }
+            }}
+          >
+            Worlds <ChevronDown size={13} />
+          </button>
+          <div className="capabilities-menu">
+            {['AGI', 'PHYSICAL', 'NEURAL', 'GAMING', 'PLATFORM'].map((item) => (
+              <a href={`#world-${item.toLowerCase()}`} key={item} onClick={closeMobileMenu}>
+                {item}
+              </a>
+            ))}
+          </div>
+        </div>
+        <div
+          className={`capabilities-dropdown${capabilitiesOpen ? ' is-open' : ''}`}
+          onMouseEnter={() => setCapabilitiesOpen(true)}
+          onMouseLeave={() => setCapabilitiesOpen(false)}
+          onFocus={(event) => {
+            if (event.target instanceof HTMLElement && event.target.matches(':focus-visible')) {
+              setCapabilitiesOpen(true);
+            }
+          }}
+          onBlur={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+              setCapabilitiesOpen(false);
+            }
+          }}
+        >
+          <button
+            className="capabilities-trigger"
+            type="button"
+            aria-expanded={capabilitiesOpen}
+            onClick={() => {
+              if (window.matchMedia('(hover: none)').matches) {
+                setCapabilitiesOpen((isOpen) => !isOpen);
+              } else {
+                setCapabilitiesOpen(true);
+              }
+            }}
+          >
+            Capabilities <ChevronDown size={13} />
+          </button>
+          <div className="capabilities-menu">
+            {['Sense', 'Understand', 'Predict', 'Decide', 'Execute'].map((item) => (
+              <a href={`#capability-${item.toLowerCase()}`} key={item} onClick={() => { setCapabilitiesOpen(false); closeMobileMenu(); }}>
+                {item}
+              </a>
+            ))}
+          </div>
+        </div>
+        <a href="#careers" onClick={closeMobileMenu}>Careers</a>
+        <a className="mission-nav-button" href="#architecture" onClick={closeMobileMenu}>Explore DERYK <ArrowRight size={13} /></a>
+      </nav>
+    </header>
 
     <main>
-      <section className="mission-hero"><video className="hero-video" autoPlay muted loop playsInline aria-hidden="true"><source src="/images/deryk-hero-video.mp4" type="video/mp4" /></video><div className="hero-editorial"><span className="eyebrow">DERYK / AUTONOMOUS MISSION SYSTEM</span><h1>Autonomy,<br /><em>with receipts.</em></h1><p>A mission-control intelligence layer for planning, enforcing, executing and observing autonomous operations.</p><div className="hero-actions"><a className="mission-button primary" href="#architecture">Explore the architecture <ArrowRight size={15} /></a><a className="mission-button text" href="#worlds">Explore DERYK <ArrowDownRight size={15} /></a></div><div className="hero-footnote"><span>SIMULATED DEMO ENVIRONMENT</span><span>NO LIVE HARDWARE CONNECTED</span></div></div></section>
+      <section className="mission-hero" aria-labelledby="hero-title">
+        <video className="hero-video" autoPlay muted loop playsInline aria-hidden="true" poster="/images/deryk-hero-environment.png">
+          <source src="/images/deryk-hero-video.mp4" type="video/mp4" />
+        </video>
+        <div className="hero-editorial">
+          <span className="eyebrow">DERYK / PHYSICAL · PLATFORM · NEURAL · GAMING</span>
+          <h1 id="hero-title">AI for<br /><em>changing environments.</em></h1>
+          <p>Four areas of work across physical and digital environments. AGI remains a long-term research direction.</p>
+          <div className="hero-actions">
+            <a className="mission-button primary" href="#worlds">Explore the areas <ArrowRight size={15} /></a>
+            <a className="mission-button text" href="#replay">View field simulation <ArrowDownRight size={15} /></a>
+          </div>
+        </div>
+        <div className="hero-footnote"><span>SIMULATED DEMO ENVIRONMENT</span><span>NO LIVE HARDWARE CONNECTED</span></div>
+        <a className="hero-scroll" href="#worlds"><span>SCROLL TO EXPLORE</span><ArrowDownRight size={14} /></a>
+      </section>
 
       <section className="mission-claim"><span>THE INVARIANT</span><h2>The AI proposes.<br /><em>The Gate decides.</em></h2><p>DERYK keeps intelligence expressive and execution accountable by placing deterministic authority between the request and the vehicle.</p></section>
 
@@ -200,7 +341,32 @@ function DerykPage() {
       <section className="mission-cta" id="connect"><span className="eyebrow">07 / START WITH PROOF</span><h2>Build autonomous systems<br /><em>you can prove safe.</em></h2><p>Bring your mission loop into focus. DERYK gives every proposal a boundary and every flight a record.</p><a className="mission-button primary" href="mailto:hello@deryk.ai">Enter mission control <ArrowRight size={15} /></a></section>
       <ReferenceSections />
     </main>
-    <footer className="mission-footer"><div><Mark /><span>INTELLIGENCE INFRASTRUCTURE FOR AUTONOMOUS WORLDS</span></div><div><i className="live-dot" /> SYSTEM NOMINAL <span>© 2026 DERYK SYSTEMS</span></div></footer>
+    <footer className="mission-footer">
+      <div className="footer-main">
+        <div className="footer-brand">
+          <a href="#top" aria-label="DERYK home"><Mark /></a>
+          <p>Physical AI · Platform AI<br />Neural AI · Gaming AI</p>
+          <span>AGI is a long-term research direction, not a product or achieved capability.</span>
+        </div>
+        <nav className="footer-link-group" aria-label="Site navigation">
+          <h2>Explore</h2>
+          <a href="#worlds">Areas of work <ArrowRight size={13} /></a>
+          <a href="#architecture">Architecture <ArrowRight size={13} /></a>
+          <a href="#capabilities">Capabilities <ArrowRight size={13} /></a>
+          <a href="#replay">Field simulation <ArrowRight size={13} /></a>
+          <a href="#careers">Careers <ArrowRight size={13} /></a>
+        </nav>
+        <div className="footer-contact">
+          <span className="footer-contact-kicker">GET IN TOUCH</span>
+          <h2>Start a conversation.</h2>
+          <a href="mailto:hello@deryk.ai">hello@deryk.ai <ArrowRight size={14} /></a>
+        </div>
+      </div>
+      <div className="footer-base">
+        <span>COPYRIGHT 2026 DERYK SYSTEMS</span>
+        <span>FOUR DEPARTMENTS <b>/</b> AGI AS LONG-TERM DIRECTION</span>
+      </div>
+    </footer>
   </div>;
 }
 
@@ -235,7 +401,14 @@ function IntelligencePage() {
 function TelemetryPanel() { return <div className="telemetry-panel"><div className="telemetry-chart"><svg viewBox="0 0 600 180" preserveAspectRatio="none"><path d="M0 145 C50 125 75 150 115 92 S180 125 225 72 S285 105 335 48 S390 75 445 35 S530 65 600 18" /><path className="secondary" d="M0 100 C80 70 110 120 180 94 S280 130 350 82 S450 105 600 58" /></svg><span>ALTITUDE / METRES</span><b>124.6</b></div><div className="telemetry-values"><span>VELOCITY <b>18.4 m/s</b></span><span>GPS <b>18 SAT</b></span><span>BATTERY <b>87%</b></span><span>HDG <b>047°</b></span><span>SIGNAL <b>STRONG</b></span><span>LATENCY <b>018 ms</b></span></div></div>; }
 
 function ReferenceSections() {
+  const [activeCapability, setActiveCapability] = useState(0);
   const stack = ['Perception', 'Representation', 'World Model', 'Prediction', 'Action Model', 'Planning', 'Safety', 'Execution'];
+  const departments = [
+    { name: 'Physical AI', summary: 'Understanding changing physical or simulated environments.', slug: 'physical' },
+    { name: 'Platform AI', summary: 'Making capabilities reachable, reusable, and operable.', slug: 'platform' },
+    { name: 'Neural AI', summary: 'Researching what measured signals reveal through specialised models.', slug: 'neural' },
+    { name: 'Gaming AI', summary: 'Applying intelligence to interactive virtual worlds.', slug: 'gaming' },
+  ];
   const areas = [
     ['AGI', 'Systems that reason, plan, coordinate, and act across time.'],
     ['PHYSICAL', 'AI for the real world: perception, prediction, and safe action.'],
@@ -244,12 +417,66 @@ function ReferenceSections() {
     ['PLATFORM', 'The infrastructure connecting intelligence to everything.'],
   ];
   return <>
-    <section className="reference-principles"><div><span className="reference-kicker">TRUSTED ENGINEERING PRINCIPLES</span><h2>Built across<br />the autonomy stack.</h2></div><p>From foundational models to real-world applications, DERYK builds the technology infrastructure and environments for a more capable and beneficial future.</p><div className="principle-tags">{['AI SYSTEMS', 'WORLD MODELS', 'AGENTS', 'SIMULATION', 'ROBOTICS', 'SAFETY', 'EVALUATION', 'MEMORY'].map((item) => <span key={item}><CircleDot size={13} />{item}</span>)}</div></section>
+    <section className="reference-principles" aria-labelledby="areas-heading">
+      <video className="areas-background-video" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex={-1}>
+        <source src="/images/deryk-areas-background.mp4" type="video/mp4" />
+      </video>
+      <div className="principles-heading"><span className="reference-kicker">DERYK / AREAS OF WORK</span><h2 id="areas-heading">Four fields.<br /><em>One long-term question.</em></h2></div>
+      <p>Physical AI, Platform AI, Neural AI, and Gaming AI address distinct environments and problems. AGI remains a long-term research direction, not a product or an achieved capability.</p>
+      <div className="areas-marquee" aria-label="Explore DERYK's four departments">
+        {departments.map((department, index) => <a className="area-marquee-item" href={`#world-${department.slug}`} key={department.slug}>
+          <span className="area-marquee-index">0{index + 1} <i>/</i> DEPARTMENT</span>
+          <div className="area-marquee-title"><CircleDot size={15} /><h3>{department.name}</h3><ArrowRight size={15} /></div>
+          <p>{department.summary}</p>
+        </a>)}
+      </div>
+      <div className="agi-direction"><span className="agi-direction-index">05 / DIRECTION</span><div className="agi-direction-title"><span>LONG-TERM RESEARCH DIRECTION</span><h3>AGI</h3></div><p>An open question: whether increasingly general intelligence can emerge from systems that model the world, remember, reason, act, and learn.</p><span className="agi-direction-status"><i /> NOT A PRODUCT <b>/</b> NOT ACHIEVED</span></div>
+    </section>
     <section className="reference-thesis"><div><span className="reference-kicker">OUR THESIS</span><h2>AI has learned<br />to generate.<br /><em>The next step is<br />to understand and act.</em></h2></div><div className="thesis-copy"><p>The world is dynamic, complex, and physical. True intelligence requires more than language. It requires an understanding of the world, the ability to predict what happens next, and the capability to choose and execute actions safely.</p><a className="reference-link" href="#architecture">Our vision <ArrowRight size={14} /></a></div><div className="world-loop"><div className="loop-globe"><Mark /><small>INTELLIGENCE LOOP</small></div>{['OBSERVE', 'MODEL', 'DECIDE', 'LEARN', 'ACT', 'PREDICT'].map((item, index) => <span className={`world-loop-label label-${index}`} key={item}>{item}<small>{['Multimodal perception', 'World representation', 'Action intelligence', 'Continuous improvement', 'Safe execution', 'Possible futures'][index]}</small></span>)}</div></section>
     <ImmersiveMissionReplay />
     <section className="reference-architecture" id="architecture"><div className="reference-heading"><span className="reference-kicker">OUR ARCHITECTURE</span><h2>The intelligence stack</h2><span>A unified architecture from perception to action.</span></div><div className="stack-layout"><div className="stack-worlds"><span>REAL-TIME<br />ENVIRONMENTS</span><i />PHYSICAL WORLD<br /><small>Robots, drones, machines</small><i />VIRTUAL WORLDS<br /><small>Simulation, games</small><i />COGNITIVE SYSTEMS<br /><small>Agents, tools, workflows</small></div><div className="stack-layers">{stack.map((item, index) => <div key={item} style={{ '--layer': index } as React.CSSProperties}><span>0{index + 1}</span><b>{item}</b><small>{['Multimodal inputs', 'Unified state', 'Understanding dynamics', 'Possible futures', 'What can we do', 'The best path', 'Validation and constraints', 'Request-ready action'][index]}</small></div>)}</div><div className="stack-result">ONE<br /><b>CONTINUOUS<br />LEARNING LOOP</b><ArrowRight size={18} /></div></div></section>
-    <section className="reference-areas" id="worlds"><div className="reference-heading"><span className="reference-kicker">OUR INTELLIGENCE AREAS</span><h2>One architecture. Many worlds.</h2><span>Explore all areas <ArrowRight size={13} /></span></div><div className="area-cards">{areas.map(([name, copy], index) => <article key={name} className={`area-card area-image-${index}`}><div className="area-art" /><h3>{name}</h3><p>{copy}</p><ArrowRight size={15} /></article>)}</div></section>
-    <section className="reference-action" id="capabilities"><div className="reference-heading"><span className="reference-kicker">FROM SENSORS TO ACTION</span><h2>From perception to real-world impact.</h2><span>Learn more <ArrowRight size={13} /></span></div><div className="action-steps">{['Sense', 'Understand', 'Predict', 'Decide', 'Execute'].map((item, index) => <div key={item}><span>0{index + 1}</span><div className={`action-art action-art-${index}`} /><h3>{item}</h3><p>{['Cameras, radar, LiDAR, GPS, telemetry', 'World models that create context', 'Future states, risks, and outcomes', 'Action models & planning', 'Rules, safety, deployment'][index]}</p></div>)}</div></section>
+    <section className="reference-areas" id="worlds"><div className="reference-heading"><span className="reference-kicker">OUR INTELLIGENCE AREAS</span><h2>One architecture. Many worlds.</h2><span>Explore all areas <ArrowRight size={13} /></span></div><div className="area-cards">{areas.map(([name, copy], index) => <article id={`world-${name.toLowerCase()}`} key={name} className={`area-card area-image-${index}`}><div className="area-art" /><h3>{name}</h3><p>{copy}</p><ArrowRight size={15} /></article>)}</div></section>
+    <section className="reference-action" id="capabilities">
+      <div className="capability-showcase">
+        <div className="capability-intro">
+          <span className="reference-kicker">FROM SENSORS TO ACTION</span>
+          <h2>From perception<br /><em>to real-world impact.</em></h2>
+          <p>DERYK’s capability model describes a path from environmental observations to context, possible outcomes, and considered action.</p>
+          <a className="mission-button primary" href="#architecture">Explore our architecture <ArrowRight size={15} /></a>
+        </div>
+        <div className="capability-demo">
+          <div className="capability-preview" role="tabpanel" id="capability-preview" aria-labelledby={`capability-${capabilitySteps[activeCapability].slug}`}>
+            <img key={capabilitySteps[activeCapability].slug} className="capability-preview-image" src={capabilitySteps[activeCapability].image} alt="" />
+            <div className="capability-preview-shade" />
+            <div className="capability-preview-topline"><span>STAGE / 0{activeCapability + 1}</span><span>ILLUSTRATIVE VISUALIZATION</span></div>
+            <div className="capability-preview-copy"><span>0{activeCapability + 1} / 05</span><h3>{capabilitySteps[activeCapability].name}</h3><p>{capabilitySteps[activeCapability].copy}</p></div>
+            <div className="capability-preview-corner" aria-hidden="true"><i /><i /><i /><i /></div>
+          </div>
+          <div className="capability-tabs" role="tablist" aria-label="Select a capability stage">
+            {capabilitySteps.map((step, index) => <button
+              id={`capability-${step.slug}`}
+              className={activeCapability === index ? 'active' : ''}
+              type="button"
+              role="tab"
+              aria-selected={activeCapability === index}
+              aria-controls="capability-preview"
+              tabIndex={activeCapability === index ? 0 : -1}
+              key={step.slug}
+              onClick={() => setActiveCapability(index)}
+              onFocus={() => setActiveCapability(index)}
+              onKeyDown={(event) => {
+                const offset = event.key === 'ArrowRight' ? 1 : event.key === 'ArrowLeft' ? -1 : 0;
+                const targetIndex = event.key === 'Home' ? 0 : event.key === 'End' ? capabilitySteps.length - 1 : (index + offset + capabilitySteps.length) % capabilitySteps.length;
+                if (offset === 0 && event.key !== 'Home' && event.key !== 'End') return;
+                event.preventDefault();
+                setActiveCapability(targetIndex);
+                document.getElementById(`capability-${capabilitySteps[targetIndex].slug}`)?.focus();
+              }}
+            ><span>0{index + 1}</span><b>{step.name}</b><ArrowRight size={14} /></button>)}
+          </div>
+        </div>
+      </div>
+    </section>
     <section className="reference-careers" id="careers"><div><span className="reference-kicker">CAREERS</span><h2>Build intelligence<br />for the real world.</h2><p>Join a team of researchers, engineers, and builders working on some of the most important challenges of our time.</p><div><a className="reference-button" href="mailto:hello@deryk.ai">View open roles <ArrowRight size={13} /></a><a className="reference-text-link" href="#top">Life at DERYK</a></div></div></section>
   </>;
 }

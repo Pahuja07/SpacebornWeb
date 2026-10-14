@@ -1,6 +1,15 @@
-# DERYK home page — standalone source
+# DERYK AGI website — standalone frontend
 
-This folder is independent of the original AGI platform project. It includes only the home page, header, footer, styles, logo and latest character image. Content is local in `src/content.ts`; no backend, shared workspace, environment file or Docker is required.
+This folder is independent of the original AGI platform project. It includes every website page, the shared header and footer, styles, logo and latest character image. All content is local in `src/features/agi/content.ts`; no backend, shared workspace, environment file or Docker is required.
+
+| Page           | Route           |
+| -------------- | --------------- |
+| Home           | `/agi`          |
+| Approach       | `/agi/approach` |
+| Research areas | `/agi/research` |
+| Open questions | `/agi/unknowns` |
+
+The root `/` redirects to `/agi`. Navbar and footer links work, including the four research-area links. Browser history, direct page URLs and refresh are supported by the development and preview servers.
 
 ## Run
 
@@ -11,7 +20,7 @@ npm install
 npm run dev
 ```
 
-Open the URL printed by Vite in the terminal, usually **http://localhost:5173**. Keep the terminal running. Stop with Ctrl+C.
+Open **http://localhost:5174/agi**. Keep the terminal running. Stop with Ctrl+C. If port 5174 is already in use, stop the previous preview or run `npm run dev -- --port 5175` and open the address Vite prints.
 
 For a production build:
 
@@ -24,10 +33,14 @@ Do not double-click `index.html`; React needs the development or preview server.
 
 ## What to edit
 
-- `src/App.tsx`: home-page structure
-- `src/content.ts`: home-page text
-- `src/styles.css`: Tailwind/DaisyUI theme and responsive styles
-- `src/components/`: header, footer and DERYK wordmark
+- `src/app/App.tsx`: routes and application structure
+- `src/features/agi/content.ts`: text for all pages
+- `src/features/agi/pages/`: approach, research and open-question pages
+- `src/features/agi/AgiPage.tsx`: home-page structure
+- `src/styles/theme.css`: Tailwind/DaisyUI theme and responsive styles
+- `src/components/`: header, footer, icons and DERYK wordmark
 - `public/images/agi-research.png`: latest character image
 
-The Download button is intentionally unavailable. Navigation labels for other pages are disabled in this home-only preview, since those pages are not included. Their intended destinations are retained in `data-destination`. When integrating with your team's website, replace `PreviewLink` with real links or your router's link component. Home links work normally. This repository contains only the standalone home page.
+The Download button remains an intentionally unavailable placeholder. All page links are now real React Router links; there are no disabled preview labels or API loading/retry states.
+
+Only this separate folder was updated; the original project was not changed. The supplied PDF and DOCX references are not included. When deploying the production `dist/` folder to a static host, configure its SPA fallback to `index.html` for direct links to work.

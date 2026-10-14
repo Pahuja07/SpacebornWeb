@@ -294,6 +294,11 @@ h1 {
 .fa-solid {
   flex-shrink: 0;
 }
+.button-icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+}
 .page-intro {
   padding-top: 90px;
   padding-bottom: 20px;

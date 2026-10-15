@@ -1,9 +1,9 @@
 // Local site content: no backend request is made.
 
 export const agiContent = {
-  title: 'AGI Direction',
+  title: 'AI for changing environments.',
   introduction:
-    'Artificial general intelligence (AGI) is DERYK’s long-term research direction. We explore the intelligence loop step by step and with evidence.',
+    'Four areas of work across physical and digital environments. AGI remains a long-term research direction.',
   overview: {
     title: 'What guides the research',
     paragraphs: [

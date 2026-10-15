@@ -3,6 +3,7 @@ import { Link, Navigate, Route, Routes, useLocation } from 'react-router';
 import { SiteFooter } from '../components/SiteFooter';
 import { SiteHeader } from '../components/SiteHeader';
 import { AgiLayout } from '../features/agi/AgiLayout';
+import { AgiDirectionHomePage } from '../features/agi/AgiDirectionHomePage';
 import { AgiPage } from '../features/agi/AgiPage';
 import { ApproachPage } from '../features/agi/pages/ApproachPage';
 import { ResearchPage } from '../features/agi/pages/ResearchPage';
@@ -13,6 +14,7 @@ import { GamingAIPage } from '../features/gaming-ai/GamingAIPage';
 
 const pageTitles: Record<string, string> = {
   '/deryk': 'DERYK',
+  '/agi-direction': 'AGI Direction',
   '/deryk/approach': 'Our approach',
   '/deryk/research': 'Research areas',
   '/deryk/unknowns': 'Open questions',
@@ -51,6 +53,7 @@ export function App() {
             element={<Navigate to={pathname.replace(/^\/agi(?=\/|$)/, '/deryk')} replace />}
           />
           <Route path="/physical-ai" element={<PhysicalAIPage />} />
+          <Route path="/agi-direction" element={<AgiDirectionHomePage />} />
           <Route path="/gaming-ai" element={<GamingAIPage />} />
           <Route path="/gaming/DERYK_Gaming_AI.html" element={<GamingAIPage />} />
           <Route path="/deryk" element={<AgiLayout />}>

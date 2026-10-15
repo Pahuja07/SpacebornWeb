@@ -14,7 +14,7 @@ const capabilities = [
   { href: '/deryk/research#platform', label: 'Platform AI' },
   { href: '/neural-ai', label: 'Neural AI' },
   { href: '/gaming-ai', label: 'Gaming AI' },
-  { href: '/deryk', label: 'AGI Direction' },
+  { href: '/agi-direction', label: 'AGI Direction' },
 ];
 
 function isExternalHref(href: string) {

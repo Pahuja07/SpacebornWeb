@@ -13,7 +13,7 @@ const researchAreas = [
   { id: 'platform', label: 'Platform AI', href: '/deryk/research#platform' },
   { id: 'neural', label: 'Neural AI', href: '/neural-ai' },
   { id: 'gaming', label: 'Gaming AI', href: '/gaming-ai' },
-  { id: 'agi-direction', label: 'AGI Direction', href: '/deryk' },
+  { id: 'agi-direction', label: 'AGI Direction', href: '/agi-direction' },
 ];
 
 export function SiteFooter() {

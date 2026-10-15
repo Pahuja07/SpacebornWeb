@@ -2,7 +2,11 @@ import type { AgiContent } from '../content';
 import { Link } from 'react-router';
 import { Arrow } from '../../../components/ui/Arrow';
 
-export function AgiHero({ content }: { content: AgiContent }) {
+export function AgiHero({
+  content,
+}: {
+  content: Pick<AgiContent, 'title' | 'introduction'>;
+}) {
   return (
     <section id="overview" className="hero-section page-container" aria-labelledby="agi-title">
       <div className="hero-copy">

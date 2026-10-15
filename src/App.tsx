@@ -1,9 +1,35 @@
-import { SiteHeader } from './components/SiteHeader';
-import { SiteFooter } from './components/SiteFooter';
-import { PreviewLink } from './components/PreviewLink';
-import { content } from './content';
+import { useEffect, useRef } from 'react';
+import { Link, Navigate, Route, Routes, useLocation } from 'react-router';
+import { SiteFooter } from '../components/SiteFooter';
+import { SiteHeader } from '../components/SiteHeader';
+import { AgiLayout } from '../features/agi/AgiLayout';
+import { AgiPage } from '../features/agi/AgiPage';
+import { ApproachPage } from '../features/agi/pages/ApproachPage';
+import { ResearchPage } from '../features/agi/pages/ResearchPage';
+import { UnknownsPage } from '../features/agi/pages/UnknownsPage';
+import { PhysicalAIPage } from '../features/physical-ai/PhysicalAIPage';
+
+const pageTitles: Record<string, string> = {
+  '/agi': 'AGI Direction',
+  '/agi/approach': 'Our approach',
+  '/agi/research': 'Research areas',
+  '/agi/unknowns': 'Open questions',
+  '/physical-ai': 'Physical AI',
+};
 
 export function App() {
+  const { pathname } = useLocation();
+  const previousPath = useRef(pathname);
+
+  useEffect(() => {
+    document.title = `${pageTitles[pathname] ?? 'Page not found'} — DERYK`;
+    if (previousPath.current !== pathname) {
+      window.scrollTo(0, 0);
+      document.getElementById('main-content')?.focus({ preventScroll: true });
+      previousPath.current = pathname;
+    }
+  }, [pathname]);
+
   return (
     <>
       <a className="skip-link" href="#main-content">
@@ -11,47 +37,28 @@ export function App() {
       </a>
       <SiteHeader />
       <main id="main-content" tabIndex={-1}>
-        <section id="home" className="hero-section page-container" aria-labelledby="agi-title">
-          <div className="hero-copy">
-            <h1 id="agi-title">{content.title}</h1>
-            <p className="hero-description">{content.introduction}</p>
-            <div className="hero-actions">
-              <div className="download-placeholder">
-                <button className="btn btn-primary hero-action" type="button" disabled>
-                  Download <i className="fa-solid fa-circle-arrow-down" aria-hidden="true" />
-                </button>
-                <span className="download-note">Currently unavailable</span>
-              </div>
-              <PreviewLink
-                className="btn btn-outline hero-action outline-action"
-                href="/agi/approach"
-              >
-                Explore our approach{' '}
-                <i className="fa-solid fa-arrow-up-right-from-square" aria-hidden="true" />
-              </PreviewLink>
-            </div>
-          </div>
-          <figure className="hero-visual">
-            <img
-              src="/images/agi-research.png"
-              alt="DERYK character with violet eyes, black armor, headphones, and a ring antenna"
-              width="1278"
-              height="1230"
-              fetchPriority="high"
-            />
-          </figure>
-        </section>
-        <section
-          className="page-container overview-content section-content"
-          aria-labelledby="overview-explanation"
-        >
-          <h2 id="overview-explanation">{content.overview.title}</h2>
-          <div className="reading-copy">
-            {content.overview.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </section>
+        <Routes>
+          <Route path="/" element={<Navigate to="/agi" replace />} />
+          <Route path="/physical-ai" element={<PhysicalAIPage />} />
+          <Route path="/agi" element={<AgiLayout />}>
+            <Route index element={<AgiPage />} />
+            <Route path="approach" element={<ApproachPage />} />
+            <Route path="research" element={<ResearchPage />} />
+            <Route path="unknowns" element={<UnknownsPage />} />
+          </Route>
+          <Route
+            path="*"
+            element={
+              <section className="page-container state-section">
+                <h1>Page not found</h1>
+                <p>This page doesn’t exist. Return to the AGI overview to keep exploring.</p>
+                <Link className="btn btn-outline outline-action" to="/agi">
+                  Back to the overview
+                </Link>
+              </section>
+            }
+          />
+        </Routes>
       </main>
       <SiteFooter />
     </>

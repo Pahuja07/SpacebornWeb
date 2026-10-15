@@ -1,6 +1,12 @@
 import { Link } from 'react-router';
 import { Wordmark } from '../ui/Wordmark';
 
+type ResearchArea = {
+  id: string;
+  label: string;
+  href?: string;
+};
+
 const pages = [
   { path: '/agi', label: 'Home' },
   { path: '/agi/approach', label: 'Our approach' },
@@ -8,11 +14,13 @@ const pages = [
   { path: '/agi/unknowns', label: 'Open questions' },
 ];
 
+const researchAreas: ResearchArea[] = [
+  { id: 'physical', label: 'Physical AI' },
 const researchAreas = [
   { id: 'physical', label: 'Physical AI', to: '/physical-ai' },
   { id: 'platform', label: 'Platform AI' },
   { id: 'neural', label: 'Neural AI' },
-  { id: 'gaming', label: 'Gaming AI' },
+  { id: 'gaming', label: 'Gaming AI', href: '/gaming/DERYK_Gaming_AI.html' },
 ];
 
 export function SiteFooter() {
@@ -36,6 +44,17 @@ export function SiteFooter() {
         </nav>
         <nav className="footer-research footer-navigation" aria-label="Research focus">
           <h2>Research focus</h2>
+          {researchAreas.map((area) =>
+            area.href ? (
+              <a key={area.id} href={area.href}>
+                {area.label}
+              </a>
+            ) : (
+              <Link key={area.id} to={`/agi/research#${area.id}`}>
+                {area.label}
+              </Link>
+            ),
+          )}
           {researchAreas.map((area) => (
             <Link key={area.id} to={area.to ?? `/agi/research#${area.id}`}>
               {area.label}

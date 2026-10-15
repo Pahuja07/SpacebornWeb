@@ -1,5 +1,9 @@
 node_modules/
 dist/
+.vite/
 qa/
 graphify-out/
 *.log
+.DS_Store
+Thumbs.db
+Microsoft/

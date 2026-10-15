@@ -9,6 +9,7 @@ import { ResearchPage } from '../features/agi/pages/ResearchPage';
 import { UnknownsPage } from '../features/agi/pages/UnknownsPage';
 import { PhysicalAIPage } from '../features/physical-ai/PhysicalAIPage';
 import { NeuralAiPage } from '../features/neural-ai/NeuralAiPage';
+import { GamingAIPage } from '../features/gaming-ai/GamingAIPage';
 
 const pageTitles: Record<string, string> = {
   '/deryk': 'DERYK',
@@ -16,6 +17,8 @@ const pageTitles: Record<string, string> = {
   '/deryk/research': 'Research areas',
   '/deryk/unknowns': 'Open questions',
   '/physical-ai': 'Physical AI',
+  '/gaming-ai': 'Gaming AI',
+  '/gaming/DERYK_Gaming_AI.html': 'Gaming AI',
   '/neural-ai': 'Neural AI — Research',
   '/deryk/neural-ai-v4': 'Neural AI — Research',
 };
@@ -23,7 +26,6 @@ const pageTitles: Record<string, string> = {
 export function App() {
   const { pathname } = useLocation();
   const previousPath = useRef(pathname);
-  const isNeuralPage = pathname === '/neural-ai' || pathname.startsWith('/deryk/neural-ai');
 
   useEffect(() => {
     document.title =
@@ -34,15 +36,6 @@ export function App() {
       previousPath.current = pathname;
     }
   }, [pathname]);
-
-  if (isNeuralPage) {
-    return (
-      <Routes>
-        <Route path="/neural-ai" element={<NeuralAiPage />} />
-        <Route path="/deryk/neural-ai-v4" element={<NeuralAiPage />} />
-      </Routes>
-    );
-  }
 
   return (
     <>
@@ -58,6 +51,8 @@ export function App() {
             element={<Navigate to={pathname.replace(/^\/agi(?=\/|$)/, '/deryk')} replace />}
           />
           <Route path="/physical-ai" element={<PhysicalAIPage />} />
+          <Route path="/gaming-ai" element={<GamingAIPage />} />
+          <Route path="/gaming/DERYK_Gaming_AI.html" element={<GamingAIPage />} />
           <Route path="/deryk" element={<AgiLayout />}>
             <Route index element={<AgiPage />} />
             <Route path="approach" element={<ApproachPage />} />

@@ -41,7 +41,7 @@
 	min-height: 100vh;
 	background: var(--v4-bg);
 	color: var(--v4-text);
-	font-family: var(--v4-font-body);
+	font-family: inherit;
 	overflow-x: hidden;
 	box-sizing: border-box;
 	line-height: 1.6;
@@ -166,136 +166,6 @@
 	color: #fff;
 	font-weight: 600;
 	box-shadow: 0 0 10px rgba(168, 85, 247, 0.25);
-}
-
-/* Sticky Header */
-.neural-v4-nav {
-	position: sticky;
-	top: 0;
-	z-index: 40;
-	background: rgba(6, 5, 10, 0.88);
-	backdrop-filter: blur(20px);
-	border-bottom: 1px solid var(--v4-border);
-	padding: 0 32px;
-	height: 72px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	transition: border-color 0.3s ease;
-}
-
-.neural-v4-brand-group {
-	display: flex;
-	align-items: center;
-	gap: 20px;
-}
-
-.neural-v4-logo {
-	display: inline-flex;
-	align-items: center;
-	text-decoration: none;
-	cursor: pointer;
-	transition: opacity 0.2s ease;
-}
-
-.neural-v4-logo:hover {
-	opacity: 0.9;
-}
-
-.neural-v4-logo img,
-.neural-v4-logo .deryk-brand-mark {
-	height: 18px;
-	width: auto;
-	max-width: 130px;
-	display: block;
-	object-fit: contain;
-	border: none;
-	border-radius: 0;
-	filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.35));
-	transition: filter 0.25s ease;
-}
-
-.neural-v4-logo:hover img,
-.neural-v4-logo:hover .deryk-brand-mark {
-	filter: drop-shadow(0 0 16px rgba(192, 132, 252, 0.75)) brightness(1.15);
-}
-
-.neural-v4-status-badge {
-	display: inline-flex;
-	align-items: center;
-	gap: 8px;
-	padding: 4px 12px;
-	border-radius: 9999px;
-	background: rgba(168, 85, 247, 0.08);
-	border: 1px solid rgba(168, 85, 247, 0.25);
-	font-family: var(--v4-font-mono);
-	font-size: 11px;
-	color: var(--v4-purple-bright);
-	letter-spacing: 0.08em;
-}
-
-.neural-v4-status-badge .cyan-dot,
-.neural-v4-status-badge .purple-dot {
-	width: 6px;
-	height: 6px;
-	border-radius: 50%;
-	background: var(--v4-purple-bright);
-	box-shadow: 0 0 8px var(--v4-purple-bright);
-}
-
-.neural-v4-nav-links {
-	display: flex;
-	align-items: center;
-	gap: 24px;
-	font-size: 13px;
-	font-family: var(--v4-font-display);
-}
-
-.neural-v4-nav-links a {
-	color: var(--v4-text-muted);
-	transition: color 0.2s ease;
-	position: relative;
-}
-
-.neural-v4-nav-links a:hover {
-	color: #fff;
-}
-
-.neural-v4-nav-links a:hover::after {
-	content: '';
-	position: absolute;
-	bottom: -4px;
-	left: 0;
-	width: 100%;
-	height: 1px;
-	background: var(--v4-purple);
-	box-shadow: 0 0 6px var(--v4-purple);
-}
-
-.neural-v4-nav-actions {
-	display: flex;
-	align-items: center;
-	gap: 12px;
-}
-
-.neural-v4-btn-sm {
-	padding: 8px 16px;
-	border-radius: 9999px;
-	font-size: 12px;
-	font-family: var(--v4-font-mono);
-	display: inline-flex;
-	align-items: center;
-	gap: 6px;
-	transition: all 0.2s ease;
-	border: 1px solid rgba(255, 255, 255, 0.15);
-	color: #fff;
-	background: rgba(255, 255, 255, 0.03);
-}
-
-.neural-v4-btn-sm:hover {
-	border-color: var(--v4-purple);
-	background: rgba(168, 85, 247, 0.12);
-	color: #fff;
 }
 
 /* Hero Section */
@@ -1411,68 +1281,6 @@
 	font-size: 10px;
 }
 
-/* Footer (Shared DERYK standard) */
-.neural-v4-footer {
-	position: relative;
-	z-index: 10;
-	border-top: 1px solid rgba(168, 85, 247, 0.12);
-	background: #040307;
-	padding: 80px clamp(24px, 6vw, 100px) 40px;
-}
-
-.neural-v4-footer-grid {
-	display: grid;
-	grid-template-columns: 1.8fr 1fr 1fr;
-	gap: 48px;
-	margin-bottom: 60px;
-}
-
-.neural-v4-footer-brand p {
-	font-size: 14px;
-	color: var(--v4-text-dim);
-	margin: 16px 0 20px;
-	max-width: 320px;
-}
-
-.neural-v4-footer-col h4 {
-	font-family: var(--v4-font-mono);
-	font-size: 11px;
-	letter-spacing: 0.12em;
-	color: #fff;
-	margin: 0 0 18px;
-	text-transform: uppercase;
-}
-
-.neural-v4-footer-col ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-	font-size: 13px;
-}
-
-.neural-v4-footer-col ul a {
-	color: var(--v4-text-dim);
-	transition: color 0.2s ease;
-}
-
-.neural-v4-footer-col ul a:hover {
-	color: var(--v4-purple-bright);
-}
-
-.neural-v4-footer-bottom {
-	border-top: 1px solid rgba(255, 255, 255, 0.06);
-	padding-top: 28px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	font-family: var(--v4-font-mono);
-	font-size: 11px;
-	color: var(--v4-text-dim);
-}
-
 /* ANIMATIONS */
 @keyframes v4-pulse {
 	0%, 100% { opacity: 1; transform: scale(1); }
@@ -1519,16 +1327,9 @@
 		grid-template-columns: 1fr;
 	}
 
-	.neural-v4-footer-grid {
-		grid-template-columns: 1fr 1fr;
-	}
 }
 
 @media (max-width: 900px) {
-	.neural-v4-nav-links {
-		display: none;
-	}
-
 	.neural-v4-pipeline-nav {
 		grid-template-columns: 1fr 1fr;
 	}
@@ -1578,15 +1379,6 @@
 		transform: rotate(90deg);
 	}
 
-	.neural-v4-footer-grid {
-		grid-template-columns: 1fr;
-	}
-
-	.neural-v4-footer-bottom {
-		flex-direction: column;
-		gap: 12px;
-		text-align: center;
-	}
 }
 
 /* ACCESSIBILITY: REDUCED MOTION */

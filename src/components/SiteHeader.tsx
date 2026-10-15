@@ -13,12 +13,12 @@ const capabilities = [
   { href: '/physical-ai', label: 'Physical AI' },
   { href: '/deryk/research#platform', label: 'Platform AI' },
   { href: '/neural-ai', label: 'Neural AI' },
-  { href: '/gaming/DERYK_Gaming_AI.html', label: 'Gaming AI' },
+  { href: '/gaming-ai', label: 'Gaming AI' },
   { href: '/deryk', label: 'AGI Direction' },
 ];
 
 function isExternalHref(href: string) {
-  return href.includes('#') || href.startsWith('/gaming/');
+  return href.includes('#');
 }
 
 function closeMenu(event: MouseEvent<HTMLAnchorElement>) {

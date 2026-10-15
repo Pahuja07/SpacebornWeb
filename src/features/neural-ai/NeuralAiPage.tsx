@@ -346,34 +346,6 @@ export function NeuralAiPage() {
       <div className="neural-v4-atmosphere" />
       <div className="neural-v4-grid-overlay" />
 
-      {/* Sticky Navigation */}
-      <header className="neural-v4-nav">
-        <div className="neural-v4-brand-group">
-          <Link to="/deryk" className="neural-v4-logo" aria-label="DERYK">
-            <img src="/images/deryk-wordmark.png" alt="DERYK" className="deryk-brand-mark" />
-          </Link>
-          <span className="neural-v4-status-badge">
-            <span className="purple-dot" />
-            NEURAL AI / RESEARCH
-          </span>
-        </div>
-
-        <nav className="neural-v4-nav-links" aria-label="Neural AI sections">
-          <a href="#question">Research Question</a>
-          <a href="#pipeline">Pipeline</a>
-          <a href="#investigation">Investigation</a>
-          <a href="#methodology">Methodology</a>
-          <a href="#status">Status</a>
-          <a href="#direction">Future Direction</a>
-        </nav>
-
-        <div className="neural-v4-nav-actions">
-          <Link to="/deryk" className="neural-v4-btn-sm">
-            DERYK Home <ArrowRight size={13} />
-          </Link>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="neural-v4-hero" aria-labelledby="neural-hero-heading">
         <div className="neural-v4-hero-content">
@@ -881,48 +853,6 @@ export function NeuralAiPage() {
         </div>
       </div>
 
-      {/* DERYK Standard Footer */}
-      <footer className="neural-v4-footer">
-        <div className="neural-v4-footer-grid">
-          <div className="neural-v4-footer-brand">
-            <Link to="/deryk" className="neural-v4-logo" aria-label="DERYK">
-              <img src="/images/deryk-wordmark.png" alt="DERYK" className="deryk-brand-mark" />
-            </Link>
-            <p>
-              Autonomous mission intelligence substrate, multi-agent systems, and frontier cognitive compute architectures for planetary-scale engineering.
-            </p>
-            <div style={{ color: 'var(--v4-purple-bright)', fontFamily: 'monospace', fontSize: 11 }}>
-              &bull; DERYK / RESEARCH &bull; NEURAL AI PROTOCOL
-            </div>
-          </div>
-
-          <div className="neural-v4-footer-col">
-            <h4>Research Pillars</h4>
-            <ul>
-              <li><Link to="/neural-ai">Neural AI</Link></li>
-              <li><Link to="/deryk/research#platform">Platform AI</Link></li>
-              <li><Link to="/physical-ai">Physical AI</Link></li>
-              <li><a href="/gaming/DERYK_Gaming_AI.html">Gaming AI</a></li>
-            </ul>
-          </div>
-
-          <div className="neural-v4-footer-col">
-            <h4>Navigation</h4>
-            <ul>
-              <li><a href="#question">Research Question</a></li>
-              <li><a href="#pipeline">Research Pipeline</a></li>
-              <li><a href="#investigation">Investigation Areas</a></li>
-              <li><a href="#status">Scientific Status</a></li>
-              <li><Link to="/deryk">Return to DERYK</Link></li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="neural-v4-footer-bottom">
-          <span>&copy; 2026 DERYK SYSTEMS INC. ALL RIGHTS RESERVED.</span>
-          <span>RESEARCH PROTOTYPE &bull; NO COMMERCIAL PRODUCTS ASSERTED</span>
-        </div>
-      </footer>
     </div>
   );
 }

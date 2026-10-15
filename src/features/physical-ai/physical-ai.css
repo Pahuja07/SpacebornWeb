@@ -33,7 +33,7 @@
   color: var(--pa-text-primary);
   min-height: 100vh;
   overflow-x: clip;
-  font-family: var(--pa-sans);
+  font-family: inherit;
   font-size: 14px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -105,115 +105,6 @@
 .xai-plat-card:nth-child(4) .xai-img-cover {
   animation-duration: 24s;
   animation-delay: -10s;
-}
-
-/* ==========================================================================
-   SLIM SECONDARY SUB-NAVIGATION (PHYSICAL AI)
-   ========================================================================== */
-.xai-subnav {
-  position: sticky;
-  top: var(--header-height, 82px);
-  z-index: 30;
-  background: rgba(9, 9, 11, 0.85);
-  border-bottom: 1px solid rgba(157, 92, 230, 0.16);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  transition: background-color 150ms ease, border-color 150ms ease;
-}
-
-.xai-subnav-inner {
-  width: min(1320px, 100%);
-  min-height: 42px;
-  margin: 0 auto;
-  padding: 0 clamp(16px, 4vw, 40px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.xai-subnav-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
-  user-select: none;
-}
-
-.xai-subnav-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--pa-purple-light);
-  box-shadow: 0 0 8px rgba(192, 132, 252, 0.85);
-  animation: pulse-dot 2.5s ease-in-out infinite alternate !important;
-}
-
-@keyframes pulse-dot {
-  0% {
-    opacity: 0.6;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1.15);
-  }
-}
-
-.xai-subnav-title {
-  font-family: var(--pa-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  font-weight: 600;
-  color: var(--pa-purple-light);
-  text-transform: uppercase;
-}
-
-.xai-subnav-links {
-  display: flex;
-  align-items: center;
-  gap: clamp(14px, 2vw, 26px);
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  padding: 4px 0;
-}
-
-.xai-subnav-links::-webkit-scrollbar {
-  display: none;
-}
-
-.xai-subnav-links a {
-  font-size: 0.78rem;
-  color: var(--pa-text-secondary);
-  font-weight: 450;
-  letter-spacing: -0.01em;
-  white-space: nowrap;
-  transition: color 140ms ease !important;
-  padding: 4px 0;
-  position: relative;
-}
-
-.xai-subnav-links a:hover {
-  color: #ffffff;
-}
-
-.xai-subnav-links a.xai-subnav-contact {
-  font-size: 0.72rem;
-  padding: 3px 12px;
-  margin-left: 4px;
-  border: 1px solid rgba(157, 92, 230, 0.35);
-  color: var(--pa-purple-light);
-  background: rgba(157, 92, 230, 0.08);
-  border-radius: 4px;
-  transition: all 160ms ease !important;
-}
-
-.xai-subnav-links a.xai-subnav-contact:hover {
-  background: rgba(157, 92, 230, 0.22);
-  border-color: var(--pa-purple-light);
-  color: #ffffff;
-  box-shadow: 0 0 12px rgba(157, 92, 230, 0.35);
 }
 
 /* ==========================================================================
@@ -981,44 +872,6 @@
 /* ==========================================================================
    FOOTER
    ========================================================================== */
-.xai-footer {
-  background: #000000;
-  border-top: 1px solid var(--pa-border);
-}
-
-.xai-footer-inner {
-  width: min(1320px, 100%);
-  margin: 0 auto;
-  padding: 35px 4%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  font-size: 0.78rem;
-  color: var(--pa-text-dim);
-}
-
-.xai-footer-brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.xai-footer-nav {
-  display: flex;
-  gap: 22px;
-  color: var(--pa-text-secondary);
-}
-
-.xai-footer-nav a:hover {
-  color: #ffffff;
-}
-
-.xai-footer-copy {
-  color: var(--pa-text-dim);
-}
-
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
@@ -1059,25 +912,6 @@
 }
 
 @media (max-width: 768px) {
-  .xai-subnav {
-    top: var(--header-height, 70px);
-  }
-
-  .xai-subnav-inner {
-    min-height: 38px;
-    padding: 0 16px;
-    gap: 12px;
-  }
-
-  .xai-subnav-links {
-    gap: 14px;
-    padding: 2px 0;
-  }
-
-  .xai-subnav-links a {
-    font-size: 0.74rem;
-  }
-
   .xai-section,
   .xai-hero,
   .xai-contact-section {
@@ -1091,24 +925,4 @@
     grid-template-columns: 1fr;
   }
 
-  .xai-footer-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 480px) {
-  .xai-subnav-inner {
-    padding: 0 12px;
-    gap: 10px;
-  }
-
-  .xai-subnav-title {
-    font-size: 0.66rem;
-    letter-spacing: 0.1em;
-  }
-
-  .xai-subnav-links {
-    gap: 12px;
-  }
 }

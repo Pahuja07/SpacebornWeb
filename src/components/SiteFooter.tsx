@@ -12,7 +12,7 @@ const researchAreas = [
   { id: 'physical', label: 'Physical AI', href: '/physical-ai' },
   { id: 'platform', label: 'Platform AI', href: '/deryk/research#platform' },
   { id: 'neural', label: 'Neural AI', href: '/neural-ai' },
-  { id: 'gaming', label: 'Gaming AI', href: '/gaming/DERYK_Gaming_AI.html' },
+  { id: 'gaming', label: 'Gaming AI', href: '/gaming-ai' },
   { id: 'agi-direction', label: 'AGI Direction', href: '/deryk' },
 ];
 
@@ -38,7 +38,7 @@ export function SiteFooter() {
         <nav className="footer-research footer-navigation" aria-label="Research focus">
           <h2>Research focus</h2>
           {researchAreas.map((area) =>
-            area.href.includes('#') || area.href.endsWith('.html') ? (
+            area.href.includes('#') ? (
               <a key={area.id} href={area.href}>
                 {area.label}
               </a>

@@ -93,27 +93,6 @@ const platforms = [
 export function PhysicalAIPage() {
   return (
     <div className="xai-page" id="top">
-      {/* SLIM SECTION SUB-NAVIGATION */}
-      <nav className="xai-subnav" aria-label="Physical AI section navigation">
-        <div className="xai-subnav-inner">
-          <div className="xai-subnav-brand">
-            <span className="xai-subnav-dot" aria-hidden="true" />
-            <span className="xai-subnav-title">PHYSICAL AI</span>
-          </div>
-
-          <div className="xai-subnav-links">
-            <a href="#overview">Overview</a>
-            <a href="#capabilities">Capabilities</a>
-            <a href="#platforms">Platforms</a>
-            <a href="#applications">Applications</a>
-            <a href="#safety">Safety</a>
-            <a href="#contact" className="xai-subnav-contact">
-              Contact
-            </a>
-          </div>
-        </div>
-      </nav>
-
       {/* HERO SECTION WITH CINEMATIC AMBIENT VIDEO BACKGROUND */}
       <section className="xai-hero">
         <div className="xai-hero-bg-video-wrap" aria-hidden="true">

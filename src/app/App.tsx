@@ -1,18 +1,20 @@
 import { useEffect, useRef } from 'react';
 import { Link, Navigate, Route, Routes, useLocation } from 'react-router';
-import { SiteFooter } from '../components/layout/SiteFooter';
-import { SiteHeader } from '../components/layout/SiteHeader';
+import { SiteFooter } from '../components/SiteFooter';
+import { SiteHeader } from '../components/SiteHeader';
 import { AgiLayout } from '../features/agi/AgiLayout';
 import { AgiPage } from '../features/agi/AgiPage';
 import { ApproachPage } from '../features/agi/pages/ApproachPage';
 import { ResearchPage } from '../features/agi/pages/ResearchPage';
 import { UnknownsPage } from '../features/agi/pages/UnknownsPage';
+import { PhysicalAIPage } from '../features/physical-ai/PhysicalAIPage';
 
 const pageTitles: Record<string, string> = {
   '/agi': 'AGI Direction',
   '/agi/approach': 'Our approach',
   '/agi/research': 'Research areas',
   '/agi/unknowns': 'Open questions',
+  '/physical-ai': 'Physical AI',
 };
 
 export function App() {
@@ -37,6 +39,7 @@ export function App() {
       <main id="main-content" tabIndex={-1}>
         <Routes>
           <Route path="/" element={<Navigate to="/agi" replace />} />
+          <Route path="/physical-ai" element={<PhysicalAIPage />} />
           <Route path="/agi" element={<AgiLayout />}>
             <Route index element={<AgiPage />} />
             <Route path="approach" element={<ApproachPage />} />

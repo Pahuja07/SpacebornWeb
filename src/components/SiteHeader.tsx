@@ -1,32 +1,37 @@
-import { PreviewLink } from './PreviewLink';
+import { Link, NavLink } from 'react-router';
 import { Wordmark } from './Wordmark';
 
 const pages = [
-  { href: '#home', label: 'Home' },
+  { href: '/agi', label: 'Home' },
   { href: '/agi/approach', label: 'Approach' },
   { href: '/agi/research', label: 'Research areas' },
   { href: '/agi/unknowns', label: 'Open questions' },
 ];
+
 const capabilities = [
-  { href: '/agi/research#physical', label: 'Physical AI' },
+  { href: '/physical-ai', label: 'Physical AI' },
   { href: '/agi/research#platform', label: 'Platform AI' },
   { href: '/agi/research#neural', label: 'Neural AI' },
   { href: '/agi/research#gaming', label: 'Gaming AI' },
-  { href: '#home', label: 'AGI Direction' },
+  { href: '/agi', label: 'AGI Direction' },
 ];
 
 export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="page-container header-inner navbar">
-        <a className="brand" href="#home" aria-label="DERYK — home">
+        <Link className="brand" to="/agi" aria-label="DERYK — home">
           <Wordmark />
-        </a>
+        </Link>
         <nav className="desktop-navigation" aria-label="Main navigation">
           {pages.map((page) => (
-            <PreviewLink key={page.href} href={page.href} active={page.href === '#home'}>
+            <NavLink
+              key={page.href}
+              to={page.href}
+              end={page.href === '/agi'}
+            >
               {page.label}
-            </PreviewLink>
+            </NavLink>
           ))}
           <details
             className="capabilities-dropdown"
@@ -51,14 +56,29 @@ export function SiteHeader() {
               Capabilities <i className="fa-solid fa-chevron-down" aria-hidden="true" />
             </summary>
             <div className="capabilities-menu" aria-label="Capabilities">
-              {capabilities.map((capability) => (
-                <PreviewLink
-                  key={capability.label}
-                  href={capability.href}
-                >
-                  {capability.label}
-                </PreviewLink>
-              ))}
+              {capabilities.map((capability) =>
+                capability.href.startsWith('#') || capability.href.includes('#') ? (
+                  <a
+                    key={capability.label}
+                    href={capability.href}
+                    onClick={(event) =>
+                      event.currentTarget.closest('details')?.removeAttribute('open')
+                    }
+                  >
+                    {capability.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={capability.label}
+                    to={capability.href}
+                    onClick={(event) =>
+                      event.currentTarget.closest('details')?.removeAttribute('open')
+                    }
+                  >
+                    {capability.label}
+                  </Link>
+                )
+              )}
             </div>
           </details>
         </nav>
@@ -67,18 +87,40 @@ export function SiteHeader() {
             Menu <i className="fa-solid fa-bars" aria-hidden="true" />
           </summary>
           <nav className="menu dropdown-content mobile-menu" aria-label="Mobile navigation">
-            {capabilities.map((capability) => (
-              <PreviewLink
-                key={capability.label}
-                href={capability.href}
-              >
-                {capability.label}
-              </PreviewLink>
-            ))}
+            {capabilities.map((capability) =>
+              capability.href.startsWith('#') || capability.href.includes('#') ? (
+                <a
+                  key={capability.label}
+                  href={capability.href}
+                  onClick={(event) =>
+                    event.currentTarget.closest('details')?.removeAttribute('open')
+                  }
+                >
+                  {capability.label}
+                </a>
+              ) : (
+                <Link
+                  key={capability.label}
+                  to={capability.href}
+                  onClick={(event) =>
+                    event.currentTarget.closest('details')?.removeAttribute('open')
+                  }
+                >
+                  {capability.label}
+                </Link>
+              )
+            )}
             {pages.map((page) => (
-              <PreviewLink key={page.href} href={page.href} active={page.href === '#home'}>
+              <NavLink
+                key={page.href}
+                to={page.href}
+                end={page.href === '/agi'}
+                onClick={(event) =>
+                  event.currentTarget.closest('details')?.removeAttribute('open')
+                }
+              >
                 {page.label}
-              </PreviewLink>
+              </NavLink>
             ))}
           </nav>
         </details>

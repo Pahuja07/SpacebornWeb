@@ -1,6 +1,7 @@
 import type { AgiContent } from '../content';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router';
+import { Link, useLocation } from 'react-router';
+import { Arrow } from '../../../components/ui/Arrow';
 
 export function ResearchAreas({ areas }: { areas: AgiContent['areas'] }) {
   const { hash } = useLocation();
@@ -27,6 +28,24 @@ export function ResearchAreas({ areas }: { areas: AgiContent['areas'] }) {
           <article key={area.id} id={area.id} className="research-area glass-card">
             <h3>{area.name}</h3>
             <p>{area.description}</p>
+            {area.id === 'neural' && (
+              <p style={{ marginTop: '0.85rem' }}>
+                <Link
+                  to="/neural-ai"
+                  className="outline-action"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    fontSize: '0.875rem',
+                    color: 'var(--color-primary, #a855f7)',
+                    textDecoration: 'none',
+                  }}
+                >
+                  Explore Neural AI research <Arrow />
+                </Link>
+              </p>
+            )}
           </article>
         ))}
       </div>

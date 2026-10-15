@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../../../app/deryk/page.tsx"],"sourcesContent":["'use client';\r\n\r\nimport MissionControl from './MissionControl';\r\n\r\nexport default MissionControl;\r\n"],"names":[],"mappings":"6CAEA,AAEe,EAFf,CAAA,CAAA,OAEe,OAAc"}

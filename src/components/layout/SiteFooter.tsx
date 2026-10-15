@@ -15,11 +15,9 @@ const pages = [
 ];
 
 const researchAreas: ResearchArea[] = [
-  { id: 'physical', label: 'Physical AI' },
-const researchAreas = [
-  { id: 'physical', label: 'Physical AI', to: '/physical-ai' },
+  { id: 'physical', label: 'Physical AI', href: '/physical-ai' },
   { id: 'platform', label: 'Platform AI' },
-  { id: 'neural', label: 'Neural AI' },
+  { id: 'neural', label: 'Neural AI', href: '/neural-ai' },
   { id: 'gaming', label: 'Gaming AI', href: '/gaming/DERYK_Gaming_AI.html' },
 ];
 
@@ -46,20 +44,21 @@ export function SiteFooter() {
           <h2>Research focus</h2>
           {researchAreas.map((area) =>
             area.href ? (
-              <a key={area.id} href={area.href}>
-                {area.label}
-              </a>
+              area.href.startsWith('http') || area.href.endsWith('.html') ? (
+                <a key={area.id} href={area.href}>
+                  {area.label}
+                </a>
+              ) : (
+                <Link key={area.id} to={area.href}>
+                  {area.label}
+                </Link>
+              )
             ) : (
               <Link key={area.id} to={`/agi/research#${area.id}`}>
                 {area.label}
               </Link>
             ),
           )}
-          {researchAreas.map((area) => (
-            <Link key={area.id} to={area.to ?? `/agi/research#${area.id}`}>
-              {area.label}
-            </Link>
-          ))}
         </nav>
       </div>
     </footer>

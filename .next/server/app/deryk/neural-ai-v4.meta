@@ -1,0 +1,39 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/deryk/layout,_N_T_/deryk/neural-ai-v4/layout,_N_T_/deryk/neural-ai-v4/page,_N_T_/deryk/neural-ai-v4"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/deryk/neural-ai-v4/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 96,
+        "slots": {
+          "children": {
+            "hints": 96,
+            "slots": {
+              "children": {
+                "hints": 160,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/72b1e51fcfc57dcb710d8e8459a9b6bd103884196ad55883dc126257267ba769/$/deryk/neural-ai-v4",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/deryk/neural-ai-v4/page"
+    },
+    "isFallback": false
+  }
+}

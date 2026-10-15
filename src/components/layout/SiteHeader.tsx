@@ -11,6 +11,7 @@ const links: HeaderLink[] = [
   { href: '/agi', label: 'Home' },
   { href: '/agi/approach', label: 'Approach' },
   { href: '/agi/research', label: 'Research areas' },
+  { href: '/neural-ai', label: 'Neural AI' },
   { href: '/agi/unknowns', label: 'Open questions' },
   { href: '/gaming/DERYK_Gaming_AI.html', label: 'Gaming AI', external: true },
 ];

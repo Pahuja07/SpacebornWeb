@@ -8,6 +8,7 @@ import { ApproachPage } from '../features/agi/pages/ApproachPage';
 import { ResearchPage } from '../features/agi/pages/ResearchPage';
 import { UnknownsPage } from '../features/agi/pages/UnknownsPage';
 import { PhysicalAIPage } from '../features/physical-ai/PhysicalAIPage';
+import { NeuralAiPage } from '../features/neural-ai/NeuralAiPage';
 
 const pageTitles: Record<string, string> = {
   '/agi': 'AGI Direction',
@@ -15,11 +16,14 @@ const pageTitles: Record<string, string> = {
   '/agi/research': 'Research areas',
   '/agi/unknowns': 'Open questions',
   '/physical-ai': 'Physical AI',
+  '/neural-ai': 'Neural AI — Research',
+  '/deryk/neural-ai-v4': 'Neural AI — Research',
 };
 
 export function App() {
   const { pathname } = useLocation();
   const previousPath = useRef(pathname);
+  const isNeuralPage = pathname === '/neural-ai' || pathname.startsWith('/deryk/neural-ai');
 
   useEffect(() => {
     document.title = `${pageTitles[pathname] ?? 'Page not found'} — DERYK`;
@@ -29,6 +33,15 @@ export function App() {
       previousPath.current = pathname;
     }
   }, [pathname]);
+
+  if (isNeuralPage) {
+    return (
+      <Routes>
+        <Route path="/neural-ai" element={<NeuralAiPage />} />
+        <Route path="/deryk/neural-ai-v4" element={<NeuralAiPage />} />
+      </Routes>
+    );
+  }
 
   return (
     <>
@@ -46,6 +59,8 @@ export function App() {
             <Route path="research" element={<ResearchPage />} />
             <Route path="unknowns" element={<UnknownsPage />} />
           </Route>
+          <Route path="/neural-ai" element={<NeuralAiPage />} />
+          <Route path="/deryk/neural-ai-v4" element={<NeuralAiPage />} />
           <Route
             path="*"
             element={

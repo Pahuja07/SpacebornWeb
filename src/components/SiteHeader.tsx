@@ -2,25 +2,25 @@ import { Link, NavLink } from 'react-router';
 import { Wordmark } from './Wordmark';
 
 const pages = [
-  { href: '/agi', label: 'Home' },
-  { href: '/agi/approach', label: 'Approach' },
-  { href: '/agi/research', label: 'Research areas' },
-  { href: '/agi/unknowns', label: 'Open questions' },
+  { href: '/deryk', label: 'Home' },
+  { href: '/deryk/approach', label: 'Approach' },
+  { href: '/deryk/research', label: 'Research areas' },
+  { href: '/deryk/unknowns', label: 'Open questions' },
 ];
 
 const capabilities = [
   { href: '/physical-ai', label: 'Physical AI' },
-  { href: '/agi/research#platform', label: 'Platform AI' },
-  { href: '/agi/research#neural', label: 'Neural AI' },
-  { href: '/agi/research#gaming', label: 'Gaming AI' },
-  { href: '/agi', label: 'AGI Direction' },
+  { href: '/deryk/research#platform', label: 'Platform AI' },
+  { href: '/deryk/research#neural', label: 'Neural AI' },
+  { href: '/gaming/DERYK_Gaming_AI.html', label: 'Gaming AI' },
+  { href: '/deryk', label: 'AGI Direction' },
 ];
 
 export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="page-container header-inner navbar">
-        <Link className="brand" to="/agi" aria-label="DERYK — home">
+        <Link className="brand" to="/deryk" aria-label="DERYK — home">
           <Wordmark />
         </Link>
         <nav className="desktop-navigation" aria-label="Main navigation">
@@ -28,7 +28,7 @@ export function SiteHeader() {
             <NavLink
               key={page.href}
               to={page.href}
-              end={page.href === '/agi'}
+              end={page.href === '/deryk'}
             >
               {page.label}
             </NavLink>
@@ -57,7 +57,7 @@ export function SiteHeader() {
             </summary>
             <div className="capabilities-menu" aria-label="Capabilities">
               {capabilities.map((capability) =>
-                capability.href.startsWith('#') || capability.href.includes('#') ? (
+                capability.href.includes('#') || capability.href.startsWith('/gaming/') ? (
                   <a
                     key={capability.label}
                     href={capability.href}
@@ -88,7 +88,7 @@ export function SiteHeader() {
           </summary>
           <nav className="menu dropdown-content mobile-menu" aria-label="Mobile navigation">
             {capabilities.map((capability) =>
-              capability.href.startsWith('#') || capability.href.includes('#') ? (
+              capability.href.includes('#') || capability.href.startsWith('/gaming/') ? (
                 <a
                   key={capability.label}
                   href={capability.href}
@@ -114,7 +114,7 @@ export function SiteHeader() {
               <NavLink
                 key={page.href}
                 to={page.href}
-                end={page.href === '/agi'}
+                end={page.href === '/deryk'}
                 onClick={(event) =>
                   event.currentTarget.closest('details')?.removeAttribute('open')
                 }

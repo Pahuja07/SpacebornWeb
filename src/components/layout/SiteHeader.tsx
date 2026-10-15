@@ -8,26 +8,26 @@ type HeaderLink = {
 };
 
 const links: HeaderLink[] = [
-  { href: '/agi', label: 'Home' },
-  { href: '/agi/approach', label: 'Approach' },
-  { href: '/agi/research', label: 'Research areas' },
-  { href: '/agi/unknowns', label: 'Open questions' },
+  { href: '/deryk', label: 'Home' },
+  { href: '/deryk/approach', label: 'Approach' },
+  { href: '/deryk/research', label: 'Research areas' },
+  { href: '/deryk/unknowns', label: 'Open questions' },
   { href: '/gaming/DERYK_Gaming_AI.html', label: 'Gaming AI', external: true },
 ];
 
 const capabilities = [
   { href: '/physical-ai', label: 'Physical AI' },
-  { href: '/agi/research#platform', label: 'Platform AI' },
-  { href: '/agi/research#neural', label: 'Neural AI' },
-  { href: '/agi/research#gaming', label: 'Gaming AI' },
-  { href: '/agi', label: 'AGI Direction' },
+  { href: '/deryk/research#platform', label: 'Platform AI' },
+  { href: '/deryk/research#neural', label: 'Neural AI' },
+  { href: '/deryk/research#gaming', label: 'Gaming AI' },
+  { href: '/deryk', label: 'AGI Direction' },
 ];
 
 export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="page-container header-inner navbar">
-        <Link className="brand" to="/agi" aria-label="DERYK — AGI Direction">
+        <Link className="brand" to="/deryk" aria-label="DERYK — AGI Direction">
           <Wordmark />
         </Link>
         <nav className="desktop-navigation" aria-label="Main navigation">
@@ -43,7 +43,7 @@ export function SiteHeader() {
             ),
           )}
           {links.map((link) => (
-            <NavLink key={link.href} to={link.href} end={link.href === '/agi'}>
+            <NavLink key={link.href} to={link.href} end={link.href === '/deryk'}>
               {link.label}
             </NavLink>
           ))}
@@ -148,7 +148,7 @@ export function SiteHeader() {
               <NavLink
                 key={link.href}
                 to={link.href}
-                end={link.href === '/agi'}
+                end={link.href === '/deryk'}
                 onClick={(event) =>
                   event.currentTarget.closest('details')?.removeAttribute('open')
                 }

@@ -2,18 +2,18 @@ import { Link } from 'react-router';
 import { Wordmark } from './Wordmark';
 
 const pages = [
-  { href: '/agi', label: 'Home' },
-  { href: '/agi/approach', label: 'Our approach' },
-  { href: '/agi/research', label: 'Research areas' },
-  { href: '/agi/unknowns', label: 'Open questions' },
+  { href: '/deryk', label: 'Home' },
+  { href: '/deryk/approach', label: 'Our approach' },
+  { href: '/deryk/research', label: 'Research areas' },
+  { href: '/deryk/unknowns', label: 'Open questions' },
 ];
 
 const researchAreas = [
   { id: 'physical', label: 'Physical AI', href: '/physical-ai' },
-  { id: 'platform', label: 'Platform AI', href: '/agi/research#platform' },
-  { id: 'neural', label: 'Neural AI', href: '/agi/research#neural' },
-  { id: 'gaming', label: 'Gaming AI', href: '/agi/research#gaming' },
-  { id: 'agi-direction', label: 'AGI Direction', href: '/agi' },
+  { id: 'platform', label: 'Platform AI', href: '/deryk/research#platform' },
+  { id: 'neural', label: 'Neural AI', href: '/deryk/research#neural' },
+  { id: 'gaming', label: 'Gaming AI', href: '/gaming/DERYK_Gaming_AI.html' },
+  { id: 'agi-direction', label: 'AGI Direction', href: '/deryk' },
 ];
 
 export function SiteFooter() {
@@ -21,7 +21,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="page-container footer-inner">
         <div className="footer-brand-column">
-          <Link className="footer-brand" to="/agi" aria-label="DERYK — home">
+          <Link className="footer-brand" to="/deryk" aria-label="DERYK — home">
             <Wordmark />
           </Link>
           <p>Understanding intelligence, one question at a time.</p>
@@ -38,7 +38,7 @@ export function SiteFooter() {
         <nav className="footer-research footer-navigation" aria-label="Research focus">
           <h2>Research focus</h2>
           {researchAreas.map((area) =>
-            area.href.includes('#') ? (
+            area.href.includes('#') || area.href.startsWith('/gaming/') ? (
               <a key={area.id} href={area.href}>
                 {area.label}
               </a>

@@ -4,12 +4,12 @@ This folder is independent of the original AGI platform project. It includes eve
 
 | Page           | Route           |
 | -------------- | --------------- |
-| Home           | `/agi`          |
-| Approach       | `/agi/approach` |
-| Research areas | `/agi/research` |
-| Open questions | `/agi/unknowns` |
+| Home           | `/deryk`          |
+| Approach       | `/deryk/approach` |
+| Research areas | `/deryk/research` |
+| Open questions | `/deryk/unknowns` |
 
-The root `/` redirects to `/agi`. Navbar and footer links work, including the four research-area links. Browser history, direct page URLs and refresh are supported by the development and preview servers.
+The root `/` redirects to `/deryk`. Previous `/agi` URLs redirect to their `/deryk` equivalents. Navbar and footer links work, including the four research-area links. Browser history, direct page URLs and refresh are supported by the development and preview servers.
 
 ## Run
 
@@ -20,7 +20,7 @@ npm install
 npm run dev
 ```
 
-Open **http://localhost:5174/agi**. Keep the terminal running. Stop with Ctrl+C. If port 5174 is already in use, stop the previous preview or run `npm run dev -- --port 5175` and open the address Vite prints.
+Open **http://localhost:5174/deryk**. Keep the terminal running. Stop with Ctrl+C. If port 5174 is already in use, stop the previous preview or run `npm run dev -- --port 5175` and open the address Vite prints.
 
 For a production build:
 

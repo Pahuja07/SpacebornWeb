@@ -15,7 +15,7 @@ export function AgiHero({ content }: { content: AgiContent }) {
             </button>
             <span className="download-note">Currently unavailable</span>
           </div>
-          <Link className="btn btn-outline hero-action outline-action" to="/agi/approach">
+          <Link className="btn btn-outline hero-action outline-action" to="/deryk/approach">
             Explore our approach <Arrow diagonal />
           </Link>
         </div>

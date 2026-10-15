@@ -16,6 +16,8 @@ const pages = [
 
 const researchAreas: ResearchArea[] = [
   { id: 'physical', label: 'Physical AI' },
+const researchAreas = [
+  { id: 'physical', label: 'Physical AI', to: '/physical-ai' },
   { id: 'platform', label: 'Platform AI' },
   { id: 'neural', label: 'Neural AI' },
   { id: 'gaming', label: 'Gaming AI', href: '/gaming/DERYK_Gaming_AI.html' },
@@ -53,6 +55,11 @@ export function SiteFooter() {
               </Link>
             ),
           )}
+          {researchAreas.map((area) => (
+            <Link key={area.id} to={area.to ?? `/agi/research#${area.id}`}>
+              {area.label}
+            </Link>
+          ))}
         </nav>
       </div>
     </footer>

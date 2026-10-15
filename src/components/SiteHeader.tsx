@@ -1,35 +1,59 @@
 import { Link, NavLink } from 'react-router';
+import type { MouseEvent } from 'react';
 import { Wordmark } from './Wordmark';
 
 const pages = [
   { href: '/deryk', label: 'Home' },
   { href: '/deryk/approach', label: 'Approach' },
   { href: '/deryk/research', label: 'Research areas' },
+  { href: '/neural-ai', label: 'Neural AI' },
   { href: '/deryk/unknowns', label: 'Open questions' },
 ];
 
 const capabilities = [
   { href: '/physical-ai', label: 'Physical AI' },
   { href: '/deryk/research#platform', label: 'Platform AI' },
-  { href: '/deryk/research#neural', label: 'Neural AI' },
+  { href: '/neural-ai', label: 'Neural AI' },
   { href: '/gaming/DERYK_Gaming_AI.html', label: 'Gaming AI' },
   { href: '/deryk', label: 'AGI Direction' },
 ];
+
+function isExternalHref(href: string) {
+  return href.includes('#') || href.startsWith('/gaming/');
+}
+
+function closeMenu(event: MouseEvent<HTMLAnchorElement>) {
+  event.currentTarget.closest('details')?.removeAttribute('open');
+}
+
+function CapabilityLinks() {
+  return (
+    <>
+      {capabilities.map((capability) =>
+        isExternalHref(capability.href) ? (
+          <a key={capability.label} href={capability.href} onClick={closeMenu}>
+            {capability.label}
+          </a>
+        ) : (
+          <Link key={capability.label} to={capability.href} onClick={closeMenu}>
+            {capability.label}
+          </Link>
+        ),
+      )}
+    </>
+  );
+}
 
 export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="page-container header-inner navbar">
-        <Link className="brand" to="/deryk" aria-label="DERYK — home">
+        <Link className="brand" to="/deryk" aria-label="DERYK — AGI Direction">
           <Wordmark />
         </Link>
         <nav className="desktop-navigation" aria-label="Main navigation">
           {pages.map((page) => (
-            <NavLink
-              key={page.href}
-              to={page.href}
-              end={page.href === '/deryk'}
-            >
+            <NavLink key={page.href} to={page.href} end={page.href === '/deryk'}>
               {page.label}
             </NavLink>
           ))}
@@ -56,29 +80,7 @@ export function SiteHeader() {
               Capabilities <i className="fa-solid fa-chevron-down" aria-hidden="true" />
             </summary>
             <div className="capabilities-menu" aria-label="Capabilities">
-              {capabilities.map((capability) =>
-                capability.href.includes('#') || capability.href.startsWith('/gaming/') ? (
-                  <a
-                    key={capability.label}
-                    href={capability.href}
-                    onClick={(event) =>
-                      event.currentTarget.closest('details')?.removeAttribute('open')
-                    }
-                  >
-                    {capability.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={capability.label}
-                    to={capability.href}
-                    onClick={(event) =>
-                      event.currentTarget.closest('details')?.removeAttribute('open')
-                    }
-                  >
-                    {capability.label}
-                  </Link>
-                )
-              )}
+              <CapabilityLinks />
             </div>
           </details>
         </nav>
@@ -87,37 +89,13 @@ export function SiteHeader() {
             Menu <i className="fa-solid fa-bars" aria-hidden="true" />
           </summary>
           <nav className="menu dropdown-content mobile-menu" aria-label="Mobile navigation">
-            {capabilities.map((capability) =>
-              capability.href.includes('#') || capability.href.startsWith('/gaming/') ? (
-                <a
-                  key={capability.label}
-                  href={capability.href}
-                  onClick={(event) =>
-                    event.currentTarget.closest('details')?.removeAttribute('open')
-                  }
-                >
-                  {capability.label}
-                </a>
-              ) : (
-                <Link
-                  key={capability.label}
-                  to={capability.href}
-                  onClick={(event) =>
-                    event.currentTarget.closest('details')?.removeAttribute('open')
-                  }
-                >
-                  {capability.label}
-                </Link>
-              )
-            )}
+            <CapabilityLinks />
             {pages.map((page) => (
               <NavLink
                 key={page.href}
                 to={page.href}
                 end={page.href === '/deryk'}
-                onClick={(event) =>
-                  event.currentTarget.closest('details')?.removeAttribute('open')
-                }
+                onClick={closeMenu}
               >
                 {page.label}
               </NavLink>

@@ -1,0 +1,34 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/deryk/layout,_N_T_/deryk/page,_N_T_/deryk"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/deryk/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 96,
+        "slots": {
+          "children": {
+            "hints": 160,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/ec2280016f019a10310a4a4136dbc45d9d319fb1ea300fdb6ffc995713390c2a/$/deryk",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/deryk/page"
+    },
+    "isFallback": false
+  }
+}

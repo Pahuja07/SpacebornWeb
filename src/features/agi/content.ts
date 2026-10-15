@@ -1,28 +1,27 @@
 // Local site content: no backend request is made.
 
 export const agiContent = {
-  title: 'AI for changing environments.',
+  title: 'AI that can understand, act, and learn.',
   introduction:
-    'Four areas of work across physical and digital environments. AGI remains a long-term research direction.',
+    'DERYK explores how AI could understand changing environments, make decisions, and learn from outcomes. It is research toward general intelligence, not a released product.',
   overview: {
-    title: 'What guides the research',
+    title: 'What is DERYK?',
     paragraphs: [
-      'The question is whether increasingly general intelligence can emerge from systems that maintain an understanding of the world, remember, reason, predict, plan, act, evaluate, and continue learning across different environments. This question guides DERYK’s research agenda.',
-      'DERYK investigates this direction step by step and with evidence. Its present work is organised around Physical AI, Platform AI, Neural AI, and Gaming AI, with each area exploring individual parts of the broader question.',
+      'DERYK is a research direction focused on a central challenge: how might an AI system build an understanding of its surroundings, use that understanding to choose what to do, and improve after seeing the result?',
+      'The work is explored through four areas—Physical AI, Platform AI, Neural AI, and Gaming AI. Each looks at a different part of the challenge, from changing environments to reusable capabilities, measured signals, and interactive virtual worlds.',
     ],
   },
   status: {
     label: 'Research direction',
     description:
-      'AGI remains an open research question, not an achieved capability or a released product. DERYK does not state when or whether it will be achieved.',
+      'General intelligence remains an open research question. DERYK is not a finished AGI system or a downloadable product, and no timeline or outcome is promised.',
   },
   approach: {
-    title: 'A loop for learning',
-    description:
-      'Explore nine connected stages, from observing an environment to learning from the outcome.',
+    title: 'A cycle for learning',
+    description: 'See the nine questions in the cycle, from observation to learning.',
     paragraphs: [
-      'The intelligence loop describes the questions behind DERYK’s longer-term direction. A system would need to take in observations, build and update a representation of its environment, and retain that understanding over time. It would also need to reason about what is happening, consider what might happen next, and weigh possible courses of action.',
-      'The loop continues through action and evaluation. Acting through connected systems produces a result that can be observed and compared with what was predicted. Learning asks how the difference between prediction and outcome could improve the next cycle.',
+      'DERYK uses a nine-stage cycle to frame its research: observe an environment, build a model of it, remember what matters, and reason about what is happening. From there, a system could consider what may happen next and plan a possible response.',
+      'The cycle then asks what happens when a system acts. By evaluating the result against its expectations, researchers can ask what was learned and how that might inform the next cycle. This is a framework for research—not a claim that DERYK already performs every stage.',
     ],
     steps: [
       {
@@ -66,51 +65,50 @@ export const agiContent = {
   },
   areas: {
     title: 'Four areas of exploration',
-    description:
-      'Four areas bring different perspectives to understanding environments, sharing capabilities, studying signals, and testing ideas.',
+    description: 'Each area explores a different part of DERYK’s broader research direction.',
     paragraphs: [
-      'DERYK’s four work areas explore parts of the intelligence loop in different settings. Together, they explain the range of questions behind the research direction: understanding changing environments, making capabilities reusable, studying measured signals, and using interactive worlds for testing and world modelling.',
-      'Each area offers a different setting for investigating the loop. Physical and simulated environments help frame questions about change, while reusable capabilities and measured signals bring distinct perspectives to the research.',
+      'DERYK’s research is organised into four areas. Physical AI explores changing environments; Platform AI looks at making capabilities reusable; Neural AI studies measured signals; and Gaming AI uses interactive worlds to investigate and test ideas.',
+      'These are complementary areas of research, not four finished products. Together, they help break a broad question—how AI might understand, act, and learn—into topics that can be explored and evaluated.',
     ],
     items: [
       {
         id: 'physical',
         name: 'Physical AI',
         description:
-          'Physical AI works on understanding and predicting changing physical or simulated environments. Its contribution to the wider direction concerns how an environment can be understood as it changes and how its possible future states can be considered.',
+          'Physical AI explores how an AI system can interpret a physical or simulated environment as it changes, and reason about what may happen next.',
       },
       {
         id: 'platform',
         name: 'Platform AI',
         description:
-          'Platform AI works on packaging and exposing capabilities so developers and other departments can reuse them. Its role in the direction concerns how capabilities can be made available for use across different parts of DERYK’s work.',
+          'Platform AI focuses on packaging and exposing capabilities so developers and teams can reuse them across different parts of DERYK’s work.',
       },
       {
         id: 'neural',
         name: 'Neural AI',
         description:
-          'Neural AI studies what measured signals can reveal when they are modelled well. This is a distinct signal domain within DERYK’s work and another setting for exploring part of the wider intelligence loop.',
+          'Neural AI studies how patterns in measured signals can be represented and interpreted, offering another domain for exploring questions in the wider research direction.',
       },
       {
         id: 'gaming',
         name: 'Gaming AI',
         description:
-          'Gaming AI uses interactive virtual worlds as environments for testing and world modelling. These worlds provide a different setting in which DERYK explores questions about understanding an environment and its changes.',
+          'Gaming AI uses interactive virtual worlds as settings for testing ideas and exploring how an AI system might model an environment and its changes.',
       },
     ],
   },
   unknowns: {
     title: 'What remains unknown',
-    description: 'Explore the questions guiding the next steps in DERYK’s research.',
+    description: 'These are open research questions, not promised capabilities or outcomes.',
     paragraphs: [
-      'The central question is whether increasingly general intelligence can emerge from a loop of observation, understanding, action, and learning. Investigating that question means examining how the stages relate and what evidence their results provide.',
-      'Current work explores individual parts of the loop across different environments. DERYK uses verified results to understand those parts and guide further investigation, with attention to both individual stages and their relationships.',
+      'No one knows whether a system built around observation, understanding, action, and learning can lead to general intelligence. Answering that requires studying each part of the cycle and how the parts work together.',
+      'DERYK explores pieces of this challenge across different settings. Evidence from that work can help clarify what is possible, what is not yet understood, and which questions are worth investigating next.',
     ],
     items: [
-      'Whether general intelligence can emerge from this loop remains an open research question.',
-      'How could understanding be maintained and updated across different environments?',
-      'How might the stages connect into a continuous cycle of action and learning?',
-      'What verified evidence would help evaluate progress across the loop?',
+      'Can a cycle of observation, reasoning, action, and learning support increasingly general intelligence?',
+      'How can an AI system maintain and update its understanding as an environment changes?',
+      'How should the stages connect so that outcomes can inform future decisions?',
+      'What evidence would reliably show that a system is improving?',
     ],
   },
 };

@@ -6,7 +6,6 @@ const pages = [
   { href: '/deryk', label: 'Home' },
   { href: '/deryk/approach', label: 'Approach' },
   { href: '/deryk/research', label: 'Research areas' },
-  { href: '/neural-ai', label: 'Neural AI' },
   { href: '/deryk/unknowns', label: 'Open questions' },
 ];
 

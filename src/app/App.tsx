@@ -11,7 +11,7 @@ import { PhysicalAIPage } from '../features/physical-ai/PhysicalAIPage';
 import { NeuralAiPage } from '../features/neural-ai/NeuralAiPage';
 
 const pageTitles: Record<string, string> = {
-  '/deryk': 'AGI Direction',
+  '/deryk': 'DERYK',
   '/deryk/approach': 'Our approach',
   '/deryk/research': 'Research areas',
   '/deryk/unknowns': 'Open questions',
@@ -26,7 +26,8 @@ export function App() {
   const isNeuralPage = pathname === '/neural-ai' || pathname.startsWith('/deryk/neural-ai');
 
   useEffect(() => {
-    document.title = `${pageTitles[pathname] ?? 'Page not found'} — DERYK`;
+    document.title =
+      pathname === '/deryk' ? 'DERYK' : `${pageTitles[pathname] ?? 'Page not found'} — DERYK`;
     if (previousPath.current !== pathname) {
       window.scrollTo(0, 0);
       document.getElementById('main-content')?.focus({ preventScroll: true });

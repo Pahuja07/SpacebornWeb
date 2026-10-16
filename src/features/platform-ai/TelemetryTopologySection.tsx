@@ -15,20 +15,20 @@ export default function TelemetryTopologySection() {
                     <div className="space-y-2">
                         <div className="inline-flex items-center gap-2 font-mono text-xs text-purple-300 uppercase tracking-widest pb-1">
                             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                            <span>Hardware-Inference Pipeline</span>
+                            <span>Platform Architecture Concept</span>
                         </div>
                         <h2 className="font-sans text-3xl sm:text-4xl font-bold text-white tracking-tight">
                             How It Fits Together
                         </h2>
                         <p className="text-[#a1a1aa] text-sm md:text-base max-w-2xl font-body leading-relaxed">
-                            Continuous bidirectional data flow across hardware interfaces,
-                            sandboxed runtime executors, and downstream AI service pools.
+                            An illustration of how environment interfaces, runtime scheduling,
+                            and AI services could exchange information.
                         </p>
                     </div>
 
                     <div className="flex items-center gap-3 font-mono text-xs text-[#a1a1aa]">
                         <span className="px-3 py-1 rounded-md bg-[#0c0d12] border border-purple-900/40 text-purple-300">
-                            SOCKET // POSIX_SHM_0
+                            CONCEPT // DATA ROUTE
                         </span>
                     </div>
                 </div>
@@ -197,8 +197,8 @@ export default function TelemetryTopologySection() {
                                 Environment Interface
                             </h4>
                             <p className="font-body text-xs text-[#94a3b8] leading-relaxed">
-                                Adapters for Unreal Engine 5.4+, Unity DOTS, Isaac Sim, and custom
-                                C++ simulation engines.
+                                Research explores how simulated environments could connect to
+                                AI systems through environment interfaces.
                             </p>
                         </div>
                     </div>
@@ -217,8 +217,8 @@ export default function TelemetryTopologySection() {
                                 Runtime Engine
                             </h4>
                             <p className="font-body text-xs text-[#94a3b8] leading-relaxed">
-                                Deterministic state synchronization, tick locking, rollback cache
-                                ring, and resource scheduler.
+                                Investigates how state updates, scheduling, and repeatable
+                                evaluation could be coordinated.
                             </p>
                         </div>
                     </div>
@@ -237,8 +237,8 @@ export default function TelemetryTopologySection() {
                                 AI Services Pool
                             </h4>
                             <p className="font-body text-xs text-[#94a3b8] leading-relaxed">
-                                Model orchestration, multi-modal perception pipelines, and policy
-                                network execution.
+                                Studies model orchestration, multimodal perception, and policy
+                                evaluation as parts of a reusable services layer.
                             </p>
                         </div>
                     </div>
@@ -257,8 +257,8 @@ export default function TelemetryTopologySection() {
                                 Gateway &amp; Registry
                             </h4>
                             <p className="font-body text-xs text-[#94a3b8] leading-relaxed">
-                                Dynamic schema negotiation, authentication tokens, policy
-                                enforcement, and audit telemetry.
+                                Explores validation, policy, and audit considerations when
+                                passing actions to downstream systems.
                             </p>
                         </div>
                     </div>

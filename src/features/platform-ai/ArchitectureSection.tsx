@@ -14,28 +14,28 @@ const pipelineStages: PipelineStage[] = [
         stepNumber: "01",
         shortTag: "INGRESS",
         title: "Environment Interface",
-        desc: "Connectors for Unreal Engine 5.4+, Unity DOTS, and headless physics engines mapped directly to POSIX shared memory buffers. Eliminates kernel copy overhead for sub-millisecond bidirectional sensor injection.",
+        desc: "Explores how interfaces could connect simulated or physical environments to shared-memory data paths for exchanging observations and actions.",
     },
     {
         id: "STAGE 02 // KERNEL",
         stepNumber: "02",
         shortTag: "KERNEL",
         title: "Runtime Engine",
-        desc: "Bitwise deterministic state synchronization with tick locking, rollback cache ring, and hardware-isolated scheduler. Guarantees 100% reproducible execution across heterogeneous cluster nodes.",
+        desc: "Considers how state synchronization, tick coordination, rollback, and scheduling could support repeatable evaluations across different systems.",
     },
     {
         id: "STAGE 03 // INFERENCE",
         stepNumber: "03",
         shortTag: "INFERENCE",
         title: "AI Services Pool",
-        desc: "Unified model orchestration, multi-modal spatial perception pipelines, and real-time actor-critic network dispatch. Delivers high-throughput sensory evaluation with sub-4ms end-to-end inference budget.",
+        desc: "Explores model orchestration, multimodal perception, and policy evaluation as components of a reusable AI services layer.",
     },
     {
         id: "STAGE 04 // EGRESS",
         stepNumber: "04",
         shortTag: "EGRESS",
         title: "Gateway & Registry",
-        desc: "Schema verification, cryptographically signed policy enforcement, and live audit telemetry stream. Formats output action vectors into certified execution contracts dispatched to physical or virtual actuators.",
+        desc: "Examines how a gateway could validate schemas, apply policy rules, and record events before passing actions to downstream systems.",
     },
 ];
 
@@ -194,7 +194,7 @@ export default function ArchitectureSection() {
                 <div className="absolute inset-0 flex items-center justify-center opacity-70 mix-blend-screen overflow-hidden">
                     <div className="relative w-full h-full constellation-drift flex justify-center items-center">
                         <img
-                            alt="Deterministic Topology Mesh"
+                            alt="Platform topology concept"
                             src="/images/topology-mesh.png"
                             className="w-full h-full object-cover object-center filter contrast-125 brightness-125 scale-105"
                         />
@@ -212,10 +212,10 @@ export default function ArchitectureSection() {
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
                     <div className="space-y-3 max-w-2xl">
                         <h2 className="font-sans text-3xl sm:text-4xl font-bold tracking-tight text-white drop-shadow-md">
-                            Deterministic Topology Flow
+                            Platform Architecture Flow
                         </h2>
                         <p className="font-body text-[#94a3b8] text-base leading-relaxed">
-                            A streamlined 4-step execution fabric connecting sensory input, runtime scheduling, and action vectors.
+                        A conceptual four-stage view of how environments, runtime scheduling, and AI services could fit together.
                         </p>
                     </div>
                 </div>
@@ -227,7 +227,9 @@ export default function ArchitectureSection() {
                             return (
                                 <button
                                     key={p.id}
+                                    type="button"
                                     onClick={() => setActiveStep(idx)}
+                                    aria-pressed={isActive}
                                     className={`step-btn group text-left p-4 rounded-xl transition-all flex flex-col justify-between cursor-pointer ${isActive
                                         ? "active border border-[#c084fc] bg-purple-950/40 shadow-[0_0_20px_rgba(168,85,247,0.25)] scale-[1.02]"
                                         : "border border-purple-900/40 bg-[#0e0e14]/60 hover:bg-purple-950/30 hover:border-purple-500/40"
@@ -255,7 +257,7 @@ export default function ArchitectureSection() {
                         <div className="h-full rounded-2xl bg-[#0c0d12]/90 border border-purple-500/30 p-6 md:p-8 backdrop-blur-xl relative overflow-hidden shadow-[0_16px_48px_-12px_rgba(0,0,0,0.95)] flex flex-col justify-between space-y-6">
                             <div className="absolute -top-16 -right-16 w-56 h-56 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
 
-                            <div className="space-y-5 relative z-10">
+                            <div className="space-y-5 relative z-10" aria-live="polite">
                                 <div>
                                     <h3 className="font-sans text-2xl font-bold text-white tracking-tight mb-3" id="inspector-title">
                                         {stage.title}
@@ -269,9 +271,11 @@ export default function ArchitectureSection() {
                     </div>
 
                     <div className="lg:col-span-5 flex flex-col space-y-3 justify-between">
-                        <div
+                        <button
+                            type="button"
                             onClick={() => setActiveStep(0)}
-                            className={`p-4 rounded-xl bg-[#0c0d12]/85 border backdrop-blur-md flex items-center justify-between font-mono shadow-md transition-all cursor-pointer ${activeStep === 0
+                            aria-pressed={activeStep === 0}
+                            className={`w-full text-left p-4 rounded-xl bg-[#0c0d12]/85 border backdrop-blur-md flex items-center justify-between font-mono shadow-md transition-all cursor-pointer ${activeStep === 0
                                 ? "border-[#c084fc] bg-purple-950/30"
                                 : "border-purple-500/20 hover:border-purple-400/40"
                                 }`}
@@ -282,16 +286,18 @@ export default function ArchitectureSection() {
                                 </span>
                                 <div>
                                     <div className="text-white text-xs font-bold font-sans">
-                                        Ingress Latency
+                                        Environment Interface
                                     </div>
-                                    <div className="text-[11px] text-[#64748b]">POSIX SHM Adapter</div>
+                                    <div className="text-[11px] text-[#64748b]">Observations &amp; actions</div>
                                 </div>
                             </div>
-                        </div>
+                        </button>
 
-                        <div
+                        <button
+                            type="button"
                             onClick={() => setActiveStep(1)}
-                            className={`p-4 rounded-xl bg-[#0c0d12]/85 border backdrop-blur-md flex items-center justify-between font-mono shadow-md transition-all cursor-pointer ${activeStep === 1
+                            aria-pressed={activeStep === 1}
+                            className={`w-full text-left p-4 rounded-xl bg-[#0c0d12]/85 border backdrop-blur-md flex items-center justify-between font-mono shadow-md transition-all cursor-pointer ${activeStep === 1
                                 ? "border-[#c084fc] bg-purple-950/30"
                                 : "border-purple-500/20 hover:border-purple-400/40"
                                 }`}
@@ -302,16 +308,18 @@ export default function ArchitectureSection() {
                                 </span>
                                 <div>
                                     <div className="text-white text-xs font-bold font-sans">
-                                        Kernel Frequency
+                                        Runtime Coordination
                                     </div>
-                                    <div className="text-[11px] text-[#64748b]">Tick-Locked Engine</div>
+                                    <div className="text-[11px] text-[#64748b]">Scheduling &amp; state</div>
                                 </div>
                             </div>
-                        </div>
+                        </button>
 
-                        <div
+                        <button
+                            type="button"
                             onClick={() => setActiveStep(2)}
-                            className={`p-4 rounded-xl bg-[#0c0d12]/85 border backdrop-blur-md flex items-center justify-between font-mono shadow-md transition-all cursor-pointer ${activeStep === 2
+                            aria-pressed={activeStep === 2}
+                            className={`w-full text-left p-4 rounded-xl bg-[#0c0d12]/85 border backdrop-blur-md flex items-center justify-between font-mono shadow-md transition-all cursor-pointer ${activeStep === 2
                                 ? "border-[#c084fc] bg-purple-950/30"
                                 : "border-purple-500/20 hover:border-purple-400/40"
                                 }`}
@@ -322,16 +330,18 @@ export default function ArchitectureSection() {
                                 </span>
                                 <div>
                                     <div className="text-white text-xs font-bold font-sans">
-                                        Inference Bandwidth
+                                        AI Services
                                     </div>
-                                    <div className="text-[11px] text-[#64748b]">AI Actor-Critic Pool</div>
+                                    <div className="text-[11px] text-[#64748b]">Models &amp; evaluation</div>
                                 </div>
                             </div>
-                        </div>
+                        </button>
 
-                        <div
+                        <button
+                            type="button"
                             onClick={() => setActiveStep(3)}
-                            className={`p-4 rounded-xl bg-[#0c0d12]/85 border backdrop-blur-md flex items-center justify-between font-mono shadow-md transition-all cursor-pointer ${activeStep === 3
+                            aria-pressed={activeStep === 3}
+                            className={`w-full text-left p-4 rounded-xl bg-[#0c0d12]/85 border backdrop-blur-md flex items-center justify-between font-mono shadow-md transition-all cursor-pointer ${activeStep === 3
                                 ? "border-[#c084fc] bg-purple-950/30"
                                 : "border-purple-500/20 hover:border-purple-400/40"
                                 }`}
@@ -342,12 +352,12 @@ export default function ArchitectureSection() {
                                 </span>
                                 <div>
                                     <div className="text-white text-xs font-bold font-sans">
-                                        Gateway Protocol
+                                        Gateway &amp; Policy
                                     </div>
-                                    <div className="text-[11px] text-[#64748b]">Cryptographic Stream</div>
+                                    <div className="text-[11px] text-[#64748b]">Validation &amp; records</div>
                                 </div>
                             </div>
-                        </div>
+                        </button>
                     </div>
                 </div>
             </div>

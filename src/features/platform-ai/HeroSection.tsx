@@ -55,8 +55,8 @@ export default function HeroSection() {
                             Reusable intelligence for every environment.
                         </h1>
                         <p className="font-body text-base sm:text-lg text-[#cbd5e1] max-w-xl leading-relaxed drop-shadow-[0_2px_16px_rgba(0,0,0,0.9)]">
-                            A unified intelligence platform that understands, plans, and acts
-                            across virtual worlds and the real world.
+                            Research into reusable AI capabilities for simulated and physical
+                            environments.
                         </p>
 
                         <div className="flex flex-wrap items-center gap-4 pt-2">

@@ -8,17 +8,17 @@ const pillars: Pillar[] = [
     {
         icon: "sports_esports",
         title: "Game AI & Virtual Worlds",
-        description: "Powers next-generation NPCs, dynamic game agents, and rich simulated interactive environments with responsive tactical cognition.",
+        description: "Explores agents, responsive NPC behavior, and interactive simulated environments.",
     },
     {
         icon: "precision_manufacturing",
         title: "Real-World Robotics & Simulation",
-        description: "Bridging physics-accurate sim-to-real transfer, spatial sensor grounding, and multimodal perception for embodied agents.",
+        description: "Investigates how simulation, spatial sensing, and multimodal perception could support embodied agents.",
     },
     {
         icon: "memory",
-        title: "Deterministic Runtime",
-        description: "Zero-copy shared memory, tick-synchronized execution sandboxes, and bitwise reproducible evaluation across heterogeneous nodes.",
+        title: "Runtime & Evaluation",
+        description: "Explores shared-memory interfaces, synchronized execution, and reproducible evaluation across distributed systems.",
     },
 ];
 
@@ -42,11 +42,11 @@ export default function PillarsSection() {
             <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
                 <div className="max-w-2xl mb-16 space-y-3">
                     <h2 className="font-sans text-3xl sm:text-4xl font-bold tracking-tight text-white">
-                        Architected for Every Reality
+                        Research Across Environments
                     </h2>
                     <p className="font-body text-[#94a3b8] text-base">
-                        Unified intelligence primitives built to span synthetic game
-                        engines, physical robotics, and high-frequency real-time inference.
+                        Research topics spanning game engines, robotics, simulation, and AI
+                        systems.
                     </p>
                 </div>
 

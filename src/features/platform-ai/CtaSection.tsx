@@ -14,7 +14,7 @@ export default function CtaSection() {
                     </div>
 
                     <h2 className="font-sans text-3xl md:text-5xl font-bold text-white tracking-tight">
-                        Start Building with DERYK
+                        Explore Platform AI
                     </h2>
 
                     <div className="font-mono text-xs sm:text-[13px] tracking-[0.2em] text-purple-300/80 mt-5 mb-8 uppercase">
@@ -24,7 +24,7 @@ export default function CtaSection() {
                     <div className="flex flex-col sm:flex-row items-center gap-4">
                         <a
                             className="btn-violet-gradient inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white text-[15px] tracking-wide"
-                            href="#contact"
+                            href="mailto:contact@deryk.ai"
                         >
                             <span>Contact DERYK</span>
                             <span className="text-lg">→</span>
@@ -32,7 +32,7 @@ export default function CtaSection() {
                     </div>
 
                     <div className="font-mono text-[10px] sm:text-[11px] tracking-[0.15em] text-[#64748b] mt-8 uppercase">
-                        Early SDK Access &bull; Private Cluster Sandbox
+                        A research direction within DERYK
                     </div>
                 </div>
             </div>

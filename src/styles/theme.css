@@ -55,6 +55,9 @@
 
 * {
   box-sizing: border-box;
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
 }
 
 body {
@@ -1023,4 +1026,68 @@ main {
   transform: scale(1.05);
   border-color: #c084fc;
   box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+}
+
+.platform-ai-page .animate-isometric-float {
+  animation: isometric-float 6s ease-in-out infinite !important;
+}
+
+.platform-ai-page .animate-scan-beam-vertical {
+  animation: scan-beam-vertical 4s linear infinite !important;
+}
+
+.platform-ai-page .animate-radar-sweep {
+  animation: radar-sweep 18s linear infinite !important;
+}
+
+.platform-ai-page .pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite !important;
+}
+
+.platform-ai-page .flow-line-pulse {
+  animation: laser-beam 4s linear infinite !important;
+}
+
+.platform-ai-page .flow-line-pulse-split-top {
+  animation: laser-beam 3.2s linear infinite !important;
+}
+
+.platform-ai-page .flow-line-pulse-split-bottom {
+  animation: laser-beam 3.6s linear infinite 0.4s !important;
+}
+
+.platform-ai-page .exec-glow-box {
+  animation: exec-pulse-glow 4s ease-in-out infinite !important;
+}
+
+.platform-ai-page .radar-rotator {
+  animation: radar-spin-slow 28s linear infinite !important;
+}
+
+.platform-ai-page .btn-violet-gradient,
+.platform-ai-page .interactive-node,
+.platform-ai-page .violet-border-glow,
+.platform-ai-page .step-btn {
+  transition: all 0.25s ease-in-out !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .platform-ai-page .animate-isometric-float,
+  .platform-ai-page .animate-scan-beam-vertical,
+  .platform-ai-page .animate-radar-sweep,
+  .platform-ai-page .pulse-glow,
+  .platform-ai-page .flow-line-pulse,
+  .platform-ai-page .flow-line-pulse-split-top,
+  .platform-ai-page .flow-line-pulse-split-bottom,
+  .platform-ai-page .exec-glow-box,
+  .platform-ai-page .radar-rotator {
+    animation: none !important;
+  }
+
+  .platform-ai-page .btn-violet-gradient,
+  .platform-ai-page .interactive-node,
+  .platform-ai-page .violet-border-glow,
+  .platform-ai-page .step-btn {
+    transition: none !important;
+  }
 }

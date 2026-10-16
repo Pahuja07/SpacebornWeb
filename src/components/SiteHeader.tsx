@@ -11,7 +11,7 @@ const pages = [
 
 const capabilities = [
   { href: '/physical-ai', label: 'Physical AI' },
-  { href: '/deryk/research#platform', label: 'Platform AI' },
+  { href: '/platform-ai', label: 'Platform AI' },
   { href: '/neural-ai', label: 'Neural AI' },
   { href: '/gaming-ai', label: 'Gaming AI' },
   { href: '/agi-direction', label: 'AGI Direction' },

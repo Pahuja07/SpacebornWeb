@@ -11,6 +11,7 @@ import { UnknownsPage } from '../features/agi/pages/UnknownsPage';
 import { PhysicalAIPage } from '../features/physical-ai/PhysicalAIPage';
 import { NeuralAiPage } from '../features/neural-ai/NeuralAiPage';
 import { GamingAIPage } from '../features/gaming-ai/GamingAIPage';
+import { PlatformAIPage } from '../features/platform-ai/PlatformAIPage';
 
 const pageTitles: Record<string, string> = {
   '/deryk': 'DERYK',
@@ -23,6 +24,7 @@ const pageTitles: Record<string, string> = {
   '/gaming/DERYK_Gaming_AI.html': 'Gaming AI',
   '/neural-ai': 'Neural AI — Research',
   '/deryk/neural-ai-v4': 'Neural AI — Research',
+  '/platform-ai': 'Platform AI',
 };
 
 export function App() {
@@ -64,6 +66,7 @@ export function App() {
           </Route>
           <Route path="/neural-ai" element={<NeuralAiPage />} />
           <Route path="/deryk/neural-ai-v4" element={<NeuralAiPage />} />
+          <Route path="/platform-ai" element={<PlatformAIPage />} />
           <Route
             path="*"
             element={

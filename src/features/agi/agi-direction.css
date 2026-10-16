@@ -1,0 +1,460 @@
+/* Only AGI layout overrides. DaisyUI supplies cards, steps, buttons, links and collapses. */
+.agi-direction-page {
+  /* Inter is loaded from Google Fonts in index.html. */
+  font-family: 'Inter', sans-serif;
+  color: var(--color-base-content);
+  --text-muted: #d7cfc0;
+  --agi-body-size: clamp(18px, 1.3vw, 20px);
+  --agi-section-gap: clamp(32px, 4.5vw, 64px);
+}
+
+.agi-direction-page .agi-direction-hero {
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 1120px;
+  gap: 40px;
+  padding-block: 72px 56px;
+}
+
+.agi-direction-page .hero-copy {
+  width: min(100%, 800px);
+  padding: 0;
+  text-align: center;
+}
+
+.agi-direction-page .hero-description {
+  max-width: 680px;
+  margin-top: var(--agi-section-gap);
+  margin-inline: auto;
+  text-align: center;
+  text-align-last: center;
+  text-wrap: pretty;
+}
+
+.agi-direction-page .hero-visual {
+  width: min(100%, 720px);
+}
+
+.agi-direction-page .hero-visual img {
+  aspect-ratio: 16 / 11;
+}
+
+.agi-direction-page .agi-direction-content {
+  max-width: 1120px;
+}
+
+.agi-direction-page .agi-direction-section {
+  padding-block: 72px;
+  scroll-margin-top: calc(var(--header-height) + 28px);
+}
+
+.agi-direction-page .agi-direction-editorial,
+.agi-direction-page .agi-direction-section-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 860px;
+  margin-inline: auto;
+  gap: var(--agi-section-gap);
+  text-align: center;
+}
+
+.agi-direction-page h2 {
+  max-width: 720px;
+  margin-inline: auto;
+  font-size: clamp(30px, 3.1vw, 42px);
+  line-height: 1.2;
+}
+
+.agi-direction-page .agi-idea-section {
+  text-align: center;
+}
+
+.agi-direction-page .agi-idea-introduction {
+  display: grid;
+  gap: 24px;
+  max-width: 1120px;
+  margin: var(--agi-section-gap) auto 0;
+}
+
+.agi-direction-page .agi-idea-question {
+  font-size: clamp(22px, 2vw, 29px);
+  font-weight: 450;
+  line-height: 1.65;
+  letter-spacing: -0.5px;
+  text-wrap: pretty;
+}
+
+.agi-direction-page .agi-idea-topics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin: var(--agi-section-gap) 0 0;
+}
+
+.agi-direction-page .agi-idea-topic .card-body {
+  align-items: center;
+  gap: 22px;
+  padding: 32px clamp(24px, 2vw, 36px);
+}
+
+.agi-direction-page .agi-idea-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.agi-direction-page .agi-idea-icon svg {
+  width: 25px;
+  height: 25px;
+}
+
+.agi-direction-page .agi-idea-topic h3 {
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.6px;
+}
+
+.agi-direction-page .agi-idea-topic p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: var(--agi-body-size);
+  line-height: 1.8;
+  text-wrap: pretty;
+}
+
+.agi-direction-page .agi-intelligence-explorer {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(40px, 7vw, 100px);
+  align-items: center;
+  margin-block: var(--agi-section-gap) 24px;
+}
+
+.agi-direction-page .agi-loop-diagram {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+
+/* DaisyUI steps are linear by default; only their placement and track change here. */
+.agi-direction-page .agi-loop-steps {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: visible;
+}
+
+.agi-direction-page .agi-loop-steps .step {
+  position: absolute;
+  width: 100px;
+  min-width: 0;
+  grid-template-rows: 40px max-content;
+  gap: 9px;
+  transform: translate(-50%, -20px);
+}
+
+.agi-direction-page .agi-loop-steps .step::before {
+  display: none;
+}
+
+.agi-direction-page .agi-loop-steps .step-icon {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  transition: background-color 650ms ease, color 650ms ease, border-color 650ms ease !important;
+}
+
+.agi-direction-page .agi-loop-label {
+  font-size: 17px;
+  transition: color 650ms ease !important;
+}
+
+.agi-direction-page .agi-loop-node:not(.step-primary) .agi-loop-label {
+  color: var(--text-muted);
+}
+
+.agi-direction-page .agi-loop-track {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.agi-direction-page .agi-loop-base {
+  stroke: var(--color-base-300);
+}
+
+.agi-direction-page .agi-loop-fill {
+  stroke: var(--color-primary);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 850ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.agi-direction-page .agi-loop-fill.is-resetting {
+  transition: none !important;
+}
+
+.agi-direction-page .agi-loop-reading [role='tabpanel'] {
+  min-height: 230px;
+  text-align: center;
+}
+
+.agi-direction-page .agi-loop-reading [role='tabpanel']:not([hidden]) {
+  animation: agi-loop-reveal 500ms ease both !important;
+}
+
+@keyframes agi-loop-reveal {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.agi-direction-page .agi-loop-reading [role='tabpanel']:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 10px;
+}
+
+.agi-direction-page .agi-loop-reading h3 {
+  font-size: clamp(32px, 3.4vw, 46px);
+  font-weight: 450;
+  letter-spacing: -1.5px;
+}
+
+.agi-direction-page .agi-loop-description {
+  margin-top: 24px;
+  color: var(--text-muted);
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.agi-direction-page .agi-loop-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.agi-direction-page .agi-loop-controls svg {
+  width: 24px;
+  height: 24px;
+}
+
+.agi-direction-page .agi-loop-controls > span {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.agi-direction-page .agi-direction-contributions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin: var(--agi-section-gap) 0 0;
+}
+
+.agi-direction-page .agi-direction-contribution,
+.agi-direction-page .agi-idea-topic,
+.agi-direction-page .agi-direction-questions .collapse {
+  border: 1px solid rgba(207, 185, 237, 0.085);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(243, 238, 227, 0.025), rgba(139, 61, 244, 0.012));
+  -webkit-backdrop-filter: blur(14px) saturate(110%);
+  backdrop-filter: blur(14px) saturate(110%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.agi-direction-page .agi-direction-contribution .card-body {
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  gap: 18px;
+  text-align: center;
+}
+
+.agi-direction-page .agi-direction-contribution .card-title {
+  font-size: 22px;
+  letter-spacing: -0.6px;
+}
+
+.agi-direction-page .agi-direction-contribution a {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.agi-direction-page .agi-direction-contribution .button-icon {
+  width: 13px;
+  height: 13px;
+  flex-basis: 13px;
+  color: var(--color-accent);
+}
+
+.agi-direction-page .agi-direction-contribution .card-body > p {
+  margin: 0;
+  max-width: 430px;
+  color: var(--text-muted);
+  font-size: var(--agi-body-size);
+  line-height: 1.8;
+}
+
+.agi-direction-page .agi-direction-questions {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  max-width: none;
+  margin-inline: auto;
+  text-align: left;
+}
+
+.agi-direction-page .agi-direction-wide-questions {
+  max-width: none;
+}
+
+.agi-direction-page .agi-direction-questions .collapse {
+  transition: grid-template-rows 360ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.agi-direction-page .agi-direction-questions .collapse-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 24px;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-base-content);
+  line-height: 1.6;
+}
+
+.agi-direction-page .agi-direction-questions .collapse-content {
+  padding-inline: 24px;
+  padding-bottom: 0;
+  min-height: 0;
+  overflow: hidden;
+  content-visibility: visible;
+  visibility: hidden;
+  opacity: 0;
+  color: var(--text-muted);
+  font-size: var(--agi-body-size);
+  line-height: 1.9;
+  transition: opacity 220ms ease, padding-bottom 360ms cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 360ms !important;
+}
+
+.agi-direction-page .agi-direction-questions input:checked ~ .collapse-content {
+  visibility: visible;
+  opacity: 1;
+  padding-bottom: 24px;
+  transition: opacity 260ms ease 80ms, padding-bottom 360ms cubic-bezier(0.4, 0, 0.2, 1), visibility 0s !important;
+}
+
+@media (max-width: 1050px) {
+  .agi-direction-page .agi-idea-topics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .agi-direction-page .agi-direction-hero,
+  .agi-direction-page .agi-direction-editorial,
+  .agi-direction-page .agi-direction-section-intro,
+  .agi-direction-page .agi-intelligence-explorer {
+    column-gap: 40px;
+  }
+
+  .agi-direction-page .agi-loop-steps .step {
+    width: 80px;
+  }
+
+  .agi-direction-page .agi-loop-label {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 760px) {
+  .agi-direction-page .agi-idea-topics {
+    margin-top: var(--agi-section-gap);
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
+
+  .agi-direction-page .agi-direction-hero {
+    padding-block: 54px 32px;
+    gap: 32px;
+  }
+
+  .agi-direction-page .agi-direction-hero,
+  .agi-direction-page .agi-direction-editorial,
+  .agi-direction-page .agi-direction-section-intro,
+  .agi-direction-page .agi-intelligence-explorer,
+  .agi-direction-page .agi-direction-contributions {
+    grid-template-columns: 1fr;
+  }
+
+  .agi-direction-page .hero-visual {
+    max-width: 480px;
+  }
+
+  .agi-direction-page .hero-visual img {
+    aspect-ratio: 1;
+  }
+
+  .agi-direction-page .agi-direction-section {
+    padding-block: 44px;
+  }
+
+  .agi-direction-page .agi-direction-editorial,
+  .agi-direction-page .agi-direction-section-intro {
+    gap: var(--agi-section-gap);
+  }
+
+  .agi-direction-page .agi-intelligence-explorer {
+    gap: 24px;
+    margin-top: var(--agi-section-gap);
+  }
+
+  .agi-direction-page .agi-loop-diagram {
+    max-width: 480px;
+  }
+
+  .agi-direction-page .agi-loop-steps .step {
+    width: 78px;
+  }
+
+  .agi-direction-page .agi-loop-steps .step-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .agi-direction-page .agi-loop-label {
+    font-size: 14px;
+  }
+
+  .agi-direction-page .agi-loop-reading [role='tabpanel'] {
+    min-height: 210px;
+  }
+
+}
+
+@media (max-width: 360px) {
+  .agi-direction-page .agi-loop-steps .step {
+    width: 68px;
+  }
+
+  .agi-direction-page .agi-loop-label {
+    font-size: 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agi-direction-page .agi-loop-fill,
+  .agi-direction-page .agi-loop-steps .step-icon,
+  .agi-direction-page .agi-loop-label,
+  .agi-direction-page .agi-loop-reading [role='tabpanel'],
+  .agi-direction-page .agi-direction-questions .collapse,
+  .agi-direction-page .agi-direction-questions .collapse-content {
+    transition: none !important;
+    animation: none !important;
+  }
+}

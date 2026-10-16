@@ -819,6 +819,38 @@ export function NeuralAiPage() {
         </div>
       </section>
 
+      {/* Neural AI engagement section */}
+      <section className="neural-v4-engage" aria-labelledby="neural-engage-heading">
+        <div className="neural-v4-engage-inner">
+          <div className="neural-v4-engage-mascot-wrap">
+            <img
+              src="/images/deryk-mascot-chibi-clean.png"
+              alt="DERYK mascot"
+              width="240"
+              height="327"
+              className="neural-v4-engage-mascot"
+            />
+          </div>
+          <span className="neural-v4-engage-kicker">ENGAGE</span>
+          <h2 id="neural-engage-heading">
+            Bring intelligence closer to
+            <br />
+            the physical world.
+          </h2>
+          <p>
+            Connect with our engineering team to explore how physical AI fits into your
+            operational environment.
+          </p>
+          <a
+            href="mailto:contact@deryk.ai?subject=DERYK%20Neural%20AI%20Enquiry"
+            className="neural-v4-engage-button"
+            aria-label="Contact DERYK about Neural AI"
+          >
+            Contact Us
+          </a>
+        </div>
+      </section>
+
       {/* Floating Bottom Step Dock */}
       <div className="neural-v4-floating-dock" role="navigation" aria-label="Step Navigation">
         <div className="neural-v4-dock-links">

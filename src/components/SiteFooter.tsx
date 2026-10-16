@@ -10,7 +10,7 @@ const pages = [
 
 const researchAreas = [
   { id: 'physical', label: 'Physical AI', href: '/physical-ai' },
-  { id: 'platform', label: 'Platform AI', href: '/deryk/research#platform' },
+  { id: 'platform', label: 'Platform AI', href: '/platform-ai' },
   { id: 'neural', label: 'Neural AI', href: '/neural-ai' },
   { id: 'gaming', label: 'Gaming AI', href: '/gaming-ai' },
   { id: 'agi-direction', label: 'AGI Direction', href: '/agi-direction' },

@@ -64,14 +64,12 @@ body {
   margin: 0;
   padding-top: var(--header-height);
   min-width: 320px;
-  background: linear-gradient(
-    180deg,
-    #09090b 0%,
-    #0c0a10 22%,
-    #100c16 48%,
-    #0c0a10 76%,
-    #09090b 100%
-  );
+  background: linear-gradient(180deg,
+      #09090b 0%,
+      #0c0a10 22%,
+      #100c16 48%,
+      #0c0a10 76%,
+      #09090b 100%);
   color: var(--color-base-content);
 }
 
@@ -183,7 +181,7 @@ p {
   position: relative;
 }
 
-.capabilities-dropdown > summary {
+.capabilities-dropdown>summary {
   display: flex;
   align-items: center;
   gap: 7px;
@@ -191,18 +189,18 @@ p {
   list-style: none;
 }
 
-.capabilities-dropdown > summary::-webkit-details-marker {
+.capabilities-dropdown>summary::-webkit-details-marker {
   display: none;
 }
 
-.capabilities-dropdown > summary i {
+.capabilities-dropdown>summary i {
   font-size: 10px;
   transition: transform 160ms ease;
 }
 
-.capabilities-dropdown[open] > summary i,
-.capabilities-dropdown:hover > summary i,
-.capabilities-dropdown:focus-within > summary i {
+.capabilities-dropdown[open]>summary i,
+.capabilities-dropdown:hover>summary i,
+.capabilities-dropdown:focus-within>summary i {
   transform: rotate(180deg);
 }
 
@@ -383,7 +381,7 @@ h1 {
   hyphens: auto;
 }
 
-.reading-copy p + p {
+.reading-copy p+p {
   margin-top: 22px;
 }
 
@@ -631,11 +629,90 @@ main {
 .preview-disabled {
   cursor: default;
 }
+
 .footer-inner nav .preview-disabled {
   font-size: 14px;
   color: var(--text-muted);
 }
+
 .mobile-menu .preview-disabled {
   display: block;
   padding: 12px;
+}
+
+@keyframes isometric-float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes scan-beam-vertical {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(300%);
+  }
+}
+
+@keyframes radar-sweep {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.98);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes flow-pulse {
+  0% {
+    stroke-dashoffset: 100;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-isometric-float {
+  animation: isometric-float 6s ease-in-out infinite;
+}
+
+.animate-scan-beam-vertical {
+  animation: scan-beam-vertical 4s linear infinite;
+}
+
+.animate-radar-sweep {
+  animation: radar-sweep 18s linear infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.flow-line-pulse {
+  stroke-dasharray: 8 8;
+  animation: flow-pulse 2s linear infinite;
 }

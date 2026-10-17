@@ -1,40 +1,41 @@
 export default function CtaSection() {
     return (
-        <section className="w-full py-20 relative overflow-hidden" id="cta">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-purple-950/30 to-black pointer-events-none"></div>
+        <section
+            className="w-full py-28 relative overflow-hidden bg-gradient-to-b from-[#07070a] via-[#0b0a12] to-[#07070a] border-t border-purple-900/40"
+            id="cta"
+        >
+            {/* Ambient Background Radial Glow */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.12)_0%,transparent_65%)] pointer-events-none"></div>
 
-            <div className="max-w-5xl mx-auto px-6 relative z-10">
-                <div className="rounded-3xl border border-purple-500/30 bg-gradient-to-b from-[#110e1e] to-[#07070a] p-10 md:p-16 flex flex-col items-center text-center relative overflow-hidden shadow-[0_0_80px_-20px_rgba(168,85,247,0.4)]">
-                    <div className="relative w-40 h-40 mb-2 flex items-center justify-center">
-                        <img
-                            alt="DERYK Cybernetic Vision"
-                            src="/images/cybernetic-vision.png"
-                            className="w-full h-full object-contain filter drop-shadow-[0_0_24px_rgba(168,85,247,0.9)]"
-                        />
-                    </div>
+            <div className="max-w-4xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
 
-                    <h2 className="font-sans text-3xl md:text-5xl font-bold text-white tracking-tight">
-                        Explore Platform AI
-                    </h2>
-
-                    <div className="font-mono text-xs sm:text-[13px] tracking-[0.2em] text-purple-300/80 mt-5 mb-8 uppercase">
-                        Real Intelligence. Real World.
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row items-center gap-4">
-                        <a
-                            className="btn-violet-gradient inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white text-[15px] tracking-wide"
-                            href="mailto:contact@deryk.ai"
-                        >
-                            <span>Contact DERYK</span>
-                            <span className="text-lg">→</span>
-                        </a>
-                    </div>
-
-                    <div className="font-mono text-[10px] sm:text-[11px] tracking-[0.15em] text-[#64748b] mt-8 uppercase">
-                        A research direction within DERYK
-                    </div>
+                {/* Physical AI Style Mascot with Smooth Hover Lift & Purple Glow */}
+                <div className="mascot-hover-wrap">
+                    <img
+                        alt="DERYK Mascot"
+                        src="/images/deryk-mascot-chibi-clean.png"
+                        className="mascot-hover-img"
+                    />
                 </div>
+
+                {/* Main Heading */}
+                <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-6 max-w-3xl leading-[1.12]">
+                    The infrastructure behind<br className="hidden sm:block" /> intelligent applications.
+                </h2>
+
+                {/* Description Matched from Platform AI Document */}
+                <p className="font-body text-[#94a3b8] text-base md:text-lg max-w-2xl mb-10 leading-relaxed">
+                    DERYK Platform AI provides reusable software capabilities and execution infrastructure for integrating AI into applications, simulations, and mission workflows.
+                </p>
+
+                {/* Solid White CTA Button */}
+                <a
+                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg font-semibold text-black bg-white hover:bg-gray-100 hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] transition-all duration-200 text-[15px]"
+                    href="#contact"
+                >
+                    Contact DERYK
+                </a>
+
             </div>
         </section>
     );

@@ -14,8 +14,6 @@ export default function TelemetryTopologySection() {
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
                     <div className="space-y-2">
                         <div className="inline-flex items-center gap-2 font-mono text-xs text-purple-300 uppercase tracking-widest pb-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                            <span>Platform Architecture Concept</span>
                         </div>
                         <h2 className="font-sans text-3xl sm:text-4xl font-bold text-white tracking-tight">
                             How It Fits Together
@@ -24,12 +22,6 @@ export default function TelemetryTopologySection() {
                             An illustration of how environment interfaces, runtime scheduling,
                             and AI services could exchange information.
                         </p>
-                    </div>
-
-                    <div className="flex items-center gap-3 font-mono text-xs text-[#a1a1aa]">
-                        <span className="px-3 py-1 rounded-md bg-[#0c0d12] border border-purple-900/40 text-purple-300">
-                            CONCEPT // DATA ROUTE
-                        </span>
                     </div>
                 </div>
 
@@ -161,7 +153,7 @@ export default function TelemetryTopologySection() {
                         {/* Left Node: IN: ENGINE_STEP_TICK */}
                         <div className="interactive-node font-mono text-xs md:text-sm text-[#cbd5e1] font-bold bg-[#07070a]/90 px-4 py-2.5 rounded-lg border border-purple-500/40 shadow-lg backdrop-blur-md flex items-center gap-2">
                             <span className="text-purple-400 font-normal">IN:</span>
-                            <span className="text-white tracking-wider">ENGINE_STEP_TICK</span>
+                            <span className="text-white tracking-wider">APPLICATION DATA</span>
                         </div>
 
                         {/* Center Node: EXEC: INFERENCE_ROUTER with radial glow */}
@@ -169,14 +161,14 @@ export default function TelemetryTopologySection() {
                             <div className="absolute -inset-4 bg-purple-500/20 blur-xl rounded-full -z-10 pointer-events-none"></div>
                             <span className="text-purple-300 font-semibold">EXEC:</span>
                             <span className="tracking-wider text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]">
-                                INFERENCE_ROUTER
+                                AI INFRASTRUCTURE
                             </span>
                         </div>
 
                         {/* Right Node: OUT: ACTION_VECTOR */}
                         <div className="interactive-node font-mono text-xs md:text-sm text-purple-300 font-bold bg-[#07070a]/90 px-4 py-2.5 rounded-lg border border-purple-500/40 shadow-lg backdrop-blur-md flex items-center gap-2">
                             <span className="text-purple-400 font-normal">OUT:</span>
-                            <span className="text-white tracking-wider">ACTION_VECTOR</span>
+                            <span className="text-white tracking-wider">SYSTEM OUTPUT</span>
                         </div>
                     </div>
                 </div>

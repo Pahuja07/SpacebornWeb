@@ -2,7 +2,6 @@ import HeroSection from "./HeroSection";
 import PillarsSection from "./PillarsSection";
 import ArchitectureSection from "./ArchitectureSection";
 import TelemetryTopologySection from "./TelemetryTopologySection";
-import CtaSection from "./CtaSection";
 
 export function PlatformAIPage() {
     return (
@@ -11,7 +10,6 @@ export function PlatformAIPage() {
             <PillarsSection />
             <ArchitectureSection />
             <TelemetryTopologySection />
-            <CtaSection />
         </div>
     );
 }

@@ -367,40 +367,6 @@ export function PhysicalAIPage() {
         </div>
       </section>
 
-      {/* PANORAMIC CLOSING CALLOUT WITH PLANETARY SCALE & MASCOT */}
-      <section className="xai-contact-section" id="contact">
-        <div className="xai-contact-bg-wrap">
-          <img
-            src="/images/deryk-earth-background.png"
-            alt="Physical AI World"
-            width={1400}
-            height={600}
-            className="xai-contact-bg"
-          />
-        </div>
-        <div className="xai-contact-inner">
-          <div className="xai-contact-mascot-wrap">
-            <img
-              src="/images/deryk-mascot-chibi-clean.png"
-              alt="DERYK Mascot"
-              width={240}
-              height={327}
-              className="xai-contact-mascot-img"
-            />
-          </div>
-          <span className="xai-section-tag">Engage</span>
-          <h2>Bring intelligence closer to the physical world.</h2>
-          <p>
-            Connect with our engineering team to explore how physical AI fits into your operational
-            environment.
-          </p>
-          <div className="xai-contact-actions">
-            <a href="mailto:contact@deryk.ai" className="xai-btn xai-btn-primary">
-              Contact DERYK
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

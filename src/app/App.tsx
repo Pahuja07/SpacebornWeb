@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link, Navigate, Route, Routes, useLocation } from 'react-router';
 import { SiteFooter } from '../components/SiteFooter';
+import { SiteEngagement } from '../components/SiteEngagement';
 import { SiteHeader } from '../components/SiteHeader';
 import { AgiLayout } from '../features/agi/AgiLayout';
 import { AgiDirectionHomePage } from '../features/agi/AgiDirectionHomePage';
@@ -80,6 +81,7 @@ export function App() {
             }
           />
         </Routes>
+        <SiteEngagement />
       </main>
       <SiteFooter />
     </>

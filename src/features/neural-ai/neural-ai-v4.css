@@ -985,7 +985,7 @@
 .neural-v4-area-meta {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 	font-family: var(--v4-font-mono);
 	font-size: 11px;
 	color: var(--v4-purple-bright);

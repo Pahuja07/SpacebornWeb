@@ -183,17 +183,6 @@ function HeroNeuralVisual() {
 
   return (
     <div className="neural-v4-hero-visual-card" role="region" aria-label="Measured signals flowing through a neural processing structure">
-      <div className="neural-v4-hero-card-header">
-        <div className="neural-v4-hero-card-title">
-          <BrainCircuit size={15} />
-          <span>SCHEMATIC / NEURAL-SIGNAL-FLOW-V4</span>
-        </div>
-        <div className="neural-v4-hero-card-status">
-          <span className="live-dot" />
-          <span>RESEARCH_SIMULATION</span>
-        </div>
-      </div>
-
       <div className="neural-v4-video-container">
         <video
           ref={videoRef}
@@ -205,21 +194,6 @@ function HeroNeuralVisual() {
           playsInline
           preload="auto"
         />
-      </div>
-
-      <div className="neural-v4-hero-card-footer">
-        <div className="neural-v4-footer-metric">
-          <span className="metric-label">TELEMETRY REGIME</span>
-          <span className="metric-val purple">CONTINUOUS WAVE</span>
-        </div>
-        <div className="neural-v4-footer-metric">
-          <span className="metric-label">LATENT SPACE</span>
-          <span className="metric-val purple">512-D TOPOLOGICAL</span>
-        </div>
-        <div className="neural-v4-footer-metric">
-          <span className="metric-label">STATUS PROTOCOL</span>
-          <span className="metric-val purple">INQUIRY / NON-COMMERCIAL</span>
-        </div>
       </div>
     </div>
   );
@@ -349,11 +323,6 @@ export function NeuralAiPage() {
       {/* Hero Section */}
       <section className="neural-v4-hero" aria-labelledby="neural-hero-heading">
         <div className="neural-v4-hero-content">
-          <div className="neural-v4-eyebrow">
-            <span className="neural-v4-eyebrow-pip" />
-            DERYK / RESEARCH &bull; NEURAL INTELLIGENCE
-          </div>
-
           <h1 id="neural-hero-heading" className="neural-v4-title">
             Neural <span className="accent">AI</span>
           </h1>
@@ -382,7 +351,6 @@ export function NeuralAiPage() {
       {/* SECTION 01: RESEARCH QUESTION */}
       <section className="neural-v4-section" id="question">
         <div className="neural-v4-section-header">
-          <span className="neural-v4-section-kicker">01 / RESEARCH QUESTION</span>
           <h2 className="neural-v4-section-title">
             Can specialised models reveal more about a signal?
           </h2>
@@ -427,7 +395,6 @@ export function NeuralAiPage() {
                 className={`neural-v4-comp-card ${comparisonMode === 'general' ? 'highlighted' : ''}`}
                 onClick={() => setComparisonMode('general')}
               >
-                <span className="neural-v4-comp-tag">BASELINE 01 / GENERAL-PURPOSE</span>
                 <h4>Broad General Model</h4>
                 <p>Designed for universal coverage across extensive cross-domain distributions.</p>
                 <div className="neural-v4-comp-metric-row">
@@ -448,7 +415,6 @@ export function NeuralAiPage() {
                 className={`neural-v4-comp-card ${comparisonMode === 'specialized' ? 'highlighted' : ''}`}
                 onClick={() => setComparisonMode('specialized')}
               >
-                <span className="neural-v4-comp-tag">INQUIRY 02 / SPECIALISED MODEL</span>
                 <h4>Domain-Specialised Prior</h4>
                 <p>Engineered around narrow physical dynamics and continuous sensor manifold topology.</p>
                 <div className="neural-v4-comp-metric-row">
@@ -481,7 +447,6 @@ export function NeuralAiPage() {
       {/* SECTION 02: RESEARCH PIPELINE */}
       <section className="neural-v4-section" id="pipeline">
         <div className="neural-v4-section-header">
-          <span className="neural-v4-section-kicker">02 / RESEARCH PIPELINE</span>
           <h2 className="neural-v4-section-title">
             From measured signals to evaluated inference.
           </h2>
@@ -507,7 +472,6 @@ export function NeuralAiPage() {
                 >
                   <div className="neural-v4-stage-top-meta">
                     <span>STAGE {stg.number}</span>
-                    <span>{stg.shortTitle}</span>
                   </div>
                   <div className="neural-v4-stage-mini-visual">
                     <MiniVisual type={stg.visualType as 'wave' | 'grid' | 'path' | 'compare'} />
@@ -570,7 +534,6 @@ export function NeuralAiPage() {
       {/* SECTION 03: AREAS OF INVESTIGATION */}
       <section className="neural-v4-section" id="investigation">
         <div className="neural-v4-section-header">
-          <span className="neural-v4-section-kicker">03 / AREAS OF INVESTIGATION</span>
           <h2 className="neural-v4-section-title">
             Research across the signal-to-inference process.
           </h2>
@@ -586,8 +549,7 @@ export function NeuralAiPage() {
             return (
               <article className="neural-v4-area-card" key={area.title}>
                 <div>
-                  <div className="neural-v4-area-meta">
-                    <span>{area.code}</span>
+                  <div className="neural-v4-area-meta" style={{ justifyContent: 'center' }}>
                     <span style={{ color: 'var(--v4-purple-bright)', fontSize: 10 }}>{area.status}</span>
                   </div>
 
@@ -627,7 +589,6 @@ export function NeuralAiPage() {
       {/* SECTION 04: METHODOLOGY & SIGNAL ANATOMY */}
       <section className="neural-v4-section" id="methodology">
         <div className="neural-v4-section-header">
-          <span className="neural-v4-section-kicker">04 / METHODOLOGY & ANATOMY</span>
           <h2 className="neural-v4-section-title">
             Topological decomposition of continuous streams.
           </h2>
@@ -704,7 +665,6 @@ export function NeuralAiPage() {
       {/* SECTION 05: RESEARCH STATUS */}
       <section className="neural-v4-section" id="status">
         <div className="neural-v4-section-header">
-          <span className="neural-v4-section-kicker">05 / RESEARCH STATUS</span>
           <h2 className="neural-v4-section-title">
             Clear about what we know — and what we don't.
           </h2>
@@ -761,7 +721,6 @@ export function NeuralAiPage() {
       {/* SECTION 06: FUTURE DIRECTION */}
       <section className="neural-v4-section" id="direction">
         <div className="neural-v4-section-header">
-          <span className="neural-v4-section-kicker">06 / FUTURE DIRECTION</span>
           <h2 className="neural-v4-section-title">
             Research today. Architectural possibilities tomorrow.
           </h2>

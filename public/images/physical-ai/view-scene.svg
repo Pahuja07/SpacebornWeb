@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" fill="none">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#20221c"/>
+      <stop offset="1" stop-color="#11130f"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h600v340H0z"/>
+  <path d="m0 182 104-54 99 34 91-80 97 68 86-38 123 68v160H0z" fill="#292b23"/>
+  <path d="m0 230 110-43 89 24 106-55 91 43 92-32 112 42v131H0z" fill="#303228"/>
+  <g stroke="#a39f80" stroke-opacity=".3">
+    <path d="m0 248 600-46M0 280l600-30M0 314l600-16"/>
+    <path d="m97 208-45 132m143-155-20 155m130-179v179m133-165 25 165m106-142 48 142"/>
+  </g>
+  <g fill="#383a2e" stroke="#9d9a7c" stroke-opacity=".55">
+    <path d="m125 186 28-24 28 24v47h-56z"/>
+    <path d="m431 175 37-28 37 28v57h-74z"/>
+    <path d="m478 232 20-15 20 15v27h-40z"/>
+  </g>
+  <ellipse cx="302" cy="163" rx="112" ry="40" stroke="#c1bb96" stroke-opacity=".18"/>
+  <ellipse cx="302" cy="163" rx="75" ry="27" stroke="#c1bb96" stroke-opacity=".34"/>
+  <path d="M302 58v118m-104-13h208" stroke="#c1bb96" stroke-opacity=".42"/>
+  <path d="M302 163 302 58a105 105 0 0 1 74 31z" fill="#c1bb96" fill-opacity=".12">
+    <animateTransform attributeName="transform" type="rotate" from="0 302 163" to="360 302 163" dur="16s" repeatCount="indefinite"/>
+  </path>
+  <circle cx="302" cy="163" r="5" fill="#d2cba4"/>
+  <circle cx="302" cy="163" r="20" stroke="#d2cba4" stroke-opacity=".4">
+    <animate attributeName="r" values="15;25;15" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values=".65;.1;.65" dur="4s" repeatCount="indefinite"/>
+  </circle>
+</svg>

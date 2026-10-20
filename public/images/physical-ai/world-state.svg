@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" fill="none">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#1c1e19"/>
+      <stop offset="1" stop-color="#121410"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h600v360H0z"/>
+  <path d="M0 232 98 180l67 24 86-79 84 32 85-66 180 72v197H0z" fill="#24271f"/>
+  <path d="m0 274 113-49 95 29 89-46 105 42 95-36 103 35v111H0z" fill="#2a2c23"/>
+  <g stroke="#87866d" stroke-opacity=".3">
+    <path d="m-40 300 680-130M-25 332l650-123M15 360l570-108"/>
+    <path d="m108 223-44 137m130-110-18 110m128-152 4 152m128-170 24 170m91-145 49 145"/>
+  </g>
+  <g fill="#373a2e" stroke="#a39f80" stroke-opacity=".55">
+    <path d="m103 195 22-26 22 26v56h-44z"/>
+    <path d="m150 210 17-20 17 20v39h-34z"/>
+    <path d="m412 156 27-32 27 32v77h-54z"/>
+    <path d="m470 175 19-22 19 22v63h-38z"/>
+  </g>
+  <g fill="#c3bd98" fill-opacity=".14" stroke="#c3bd98" stroke-opacity=".7">
+    <circle cx="125" cy="168" r="4"/>
+    <circle cx="166" cy="189" r="4"/>
+    <circle cx="439" cy="120" r="4"/>
+    <circle cx="489" cy="149" r="4"/>
+  </g>
+  <path d="M125 168c70-48 117-34 188-11s95 4 126-37" stroke="#b8b28f" stroke-opacity=".56" stroke-width="1.5" stroke-dasharray="3 7">
+    <animate attributeName="stroke-dashoffset" from="0" to="-50" dur="8s" repeatCount="indefinite"/>
+  </path>
+  <g stroke="#c2bc98" stroke-opacity=".48">
+    <circle cx="300" cy="157" r="47"/>
+    <circle cx="300" cy="157" r="67" stroke-dasharray="2 7"/>
+  </g>
+  <circle cx="300" cy="157" r="5" fill="#d1cba7">
+    <animate attributeName="opacity" values=".5;1;.5" dur="3.4s" repeatCount="indefinite"/>
+  </circle>
+  <path d="M300 157v-42m0 42 38 19m-38-19-35 21" stroke="#d1cba7" stroke-opacity=".6"/>
+</svg>

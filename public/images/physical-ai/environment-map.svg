@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" fill="none">
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#1b1d18"/>
+      <stop offset="1" stop-color="#11130f"/>
+    </linearGradient>
+    <radialGradient id="scan">
+      <stop stop-color="#b6b18e" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#b6b18e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h600v360H0z"/>
+  <path fill="#22251e" d="m0 200 92-38 82 24 79-57 92 44 93-50 162 59v178H0z"/>
+  <path fill="#292b22" d="m0 256 103-36 97 30 90-50 94 39 93-33 123 36v118H0z"/>
+  <g stroke="#777b64" stroke-opacity=".3" stroke-width="1">
+    <path d="m0 274 600-60M0 306l600-40M0 339l600-20"/>
+    <path d="m90 205-55 155m150-174-25 174m130-174v174m130-174 25 174m100-174 55 174"/>
+    <path d="M0 235h600M0 255h600"/>
+  </g>
+  <g fill="#34372b" stroke="#99977a" stroke-opacity=".5">
+    <path d="m110 221 43-16 31 10v44l-74 22z"/>
+    <path d="m184 255 22-9 17 5v29l-39 12z"/>
+    <path d="m443 211 47-15 26 10v48l-73 21z"/>
+  </g>
+  <circle cx="300" cy="177" r="105" fill="url(#scan)"/>
+  <g stroke="#b6b18e" stroke-opacity=".55">
+    <circle cx="300" cy="177" r="50"/>
+    <circle cx="300" cy="177" r="78" stroke-dasharray="2 7"/>
+    <path d="M300 72v210M195 177h210"/>
+  </g>
+  <path d="M300 177 300 72a105 105 0 0 1 74 31z" fill="#b6b18e" fill-opacity=".1">
+    <animateTransform attributeName="transform" type="rotate" from="0 300 177" to="360 300 177" dur="18s" repeatCount="indefinite"/>
+  </path>
+  <circle cx="300" cy="177" r="5" fill="#cbc5a0">
+    <animate attributeName="r" values="4;6;4" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values=".65;1;.65" dur="4s" repeatCount="indefinite"/>
+  </circle>
+</svg>

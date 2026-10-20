@@ -2,34 +2,30 @@ import './physical-ai.css';
 
 const capabilities = [
   {
-    num: '01',
     title: 'Environment Understanding',
     subtitle: 'Spatial Context & Perception',
-    image: '/images/deryk-sense.jpeg',
+    image: '/images/physical-ai/environment-map.svg',
     description:
       'Constructs persistent 3D representations of unconstrained environments. Preserves metric scale, dynamic geometry, and topological boundaries across varying lighting and occlusions.',
   },
   {
-    num: '02',
     title: 'Entity Lifecycle & Tracking',
     subtitle: 'Spatio-Temporal Continuity',
-    image: '/images/deryk-understand.jpeg',
+    image: '/images/physical-ai/entity-tracking.svg',
     description:
       'Tracks moving actors and objects over time, preserving identity continuity and kinematics through temporary visual blind spots and line-of-sight occlusions.',
   },
   {
-    num: '03',
     title: 'Persistent World State',
     subtitle: 'Temporal Memory & Affordances',
-    image: '/images/deryk-predict.jpeg',
+    image: '/images/physical-ai/world-state.svg',
     description:
       'Maintains durable physical state, object affordances, and history across operational horizons, enabling autonomous systems to reason about causal state changes.',
   },
   {
-    num: '04',
     title: 'Dynamics & Trajectory Foresight',
     subtitle: 'Predictive Motion Planning',
-    image: '/images/deryk-decide.jpeg',
+    image: '/images/physical-ai/trajectory.svg',
     description:
       'Anticipates physical state transitions and candidate trajectories seconds into the future, providing foresight for closed-loop motion planning and obstacle avoidance.',
   },
@@ -40,7 +36,8 @@ const platforms = [
     code: 'VIEW',
     name: 'DERYK VIEW',
     role: 'World Intelligence Layer',
-    image: '/images/deryk-physical-world.png',
+    image: '/images/physical-ai/view-scene.svg',
+    imageAlt: 'An illustrated landscape with a scanning field mapping the terrain.',
     description:
       'Fuses multimodal camera, LiDAR, and IMU streams into an aligned, continuous 3D world representation.',
     items: [
@@ -53,7 +50,8 @@ const platforms = [
     code: 'ACT',
     name: 'DERYK ACT',
     role: 'Planning & Decision Support',
-    image: '/images/deryk-architecture-background.png',
+    image: '/images/physical-ai/act-path.svg',
+    imageAlt: 'An illustrated robotic arm planning a path around obstacles.',
     description:
       'Evaluates candidate trajectories, verifies physical constraints, and synthesizes action vectors for real-time controllers.',
     items: [
@@ -66,7 +64,8 @@ const platforms = [
     code: 'RUNTIME',
     name: 'Physical AI Runtime',
     role: 'Embedded Execution Core',
-    image: '/images/deryk-careers-environment.png',
+    image: '/images/physical-ai/runtime-core.svg',
+    imageAlt: 'An illustrated embedded computing core with a quiet signal pulse.',
     description:
       'Low-overhead execution engine designed for edge compute on mobile robots, industrial equipment, and aerial vehicles.',
     items: [
@@ -79,7 +78,8 @@ const platforms = [
     code: 'SDK',
     name: 'Developer SDK',
     role: 'Integration & Interfaces',
-    image: '/images/deryk-platform.jpeg',
+    image: '/images/physical-ai/sdk-workbench.svg',
+    imageAlt: 'An illustrated software workbench connecting code and system nodes.',
     description:
       'C++ and Python standard libraries enabling autonomy teams to connect physical world models directly into existing pipelines.',
     items: [
@@ -93,7 +93,7 @@ const platforms = [
 export function PhysicalAIPage() {
   return (
     <div className="xai-page" id="top">
-      {/* HERO SECTION WITH CINEMATIC AMBIENT VIDEO BACKGROUND */}
+      {/* Hero */}
       <section className="xai-hero">
         <div className="xai-hero-bg-video-wrap" aria-hidden="true">
           <video
@@ -112,7 +112,6 @@ export function PhysicalAIPage() {
         </div>
 
         <div className="xai-hero-inner">
-          <p className="xai-hero-kicker">Physical Intelligence</p>
           <h1 className="xai-hero-title">Physical AI for the real world.</h1>
           <p className="xai-hero-sub">
             Bridging perception, world modeling, and action for autonomous systems and machines in
@@ -135,11 +134,10 @@ export function PhysicalAIPage() {
         </div>
       </section>
 
-      {/* OVERVIEW / CORE THESIS WITH VISUAL PLATE */}
+      {/* Overview */}
       <section className="xai-section" id="overview">
         <div className="xai-overview-grid">
           <div className="xai-overview-lead">
-            <span className="xai-section-tag">01 / Overview</span>
             <h2>The physical world requires grounded understanding.</h2>
             <div className="xai-overview-text">
               <p>
@@ -172,10 +170,9 @@ export function PhysicalAIPage() {
         </div>
       </section>
 
-      {/* CORE CAPABILITIES */}
+      {/* Capabilities */}
       <section className="xai-section" id="capabilities">
         <div className="xai-section-title-wrap">
-          <span className="xai-section-tag">02 / Capabilities</span>
           <h2>Foundational capabilities</h2>
           <p>
             Connected capabilities for turning raw sensory signals into verified physical agency.
@@ -184,19 +181,17 @@ export function PhysicalAIPage() {
 
         <div className="xai-capabilities-grid">
           {capabilities.map((c) => (
-            <div className="xai-cap-card" key={c.num}>
+            <div className="xai-cap-card" key={c.title}>
               <div className="xai-cap-media">
                 <img
                   src={c.image}
-                  alt={c.title}
+                  alt={`Illustration: ${c.title.toLowerCase()}`}
                   width={600}
                   height={360}
                   className="xai-img-cover"
                 />
-                <span className="xai-cap-num">{c.num}</span>
               </div>
               <div className="xai-cap-content">
-                <span className="xai-cap-sub">{c.subtitle}</span>
                 <h3>{c.title}</h3>
                 <p>{c.description}</p>
               </div>
@@ -205,10 +200,9 @@ export function PhysicalAIPage() {
         </div>
       </section>
 
-      {/* PLATFORMS */}
+      {/* Platforms */}
       <section className="xai-section" id="platforms">
         <div className="xai-section-title-wrap">
-          <span className="xai-section-tag">03 / Platforms</span>
           <h2>Modular software stack</h2>
           <p>
             Designed to integrate into existing autonomy stacks, robotics frameworks, and
@@ -222,7 +216,7 @@ export function PhysicalAIPage() {
               <div className="xai-plat-media">
                 <img
                   src={p.image}
-                  alt={p.name}
+                  alt={p.imageAlt}
                   width={600}
                   height={300}
                   className="xai-img-cover"
@@ -230,7 +224,6 @@ export function PhysicalAIPage() {
                 <span className="xai-plat-code">{p.code}</span>
               </div>
               <div className="xai-plat-content">
-                <p className="xai-plat-role">{p.role}</p>
                 <h3>{p.name}</h3>
                 <p className="xai-plat-desc">{p.description}</p>
                 <ul className="xai-plat-list">
@@ -244,10 +237,9 @@ export function PhysicalAIPage() {
         </div>
       </section>
 
-      {/* APPLICATIONS / DEPLOYMENTS */}
+      {/* Applications */}
       <section className="xai-section" id="applications">
         <div className="xai-section-title-wrap">
-          <span className="xai-section-tag">04 / Applications</span>
           <h2>Field deployments</h2>
           <p>
             Applied across automated logistics, mobile robotics, and precision physical
@@ -255,10 +247,9 @@ export function PhysicalAIPage() {
           </p>
         </div>
 
-        {/* APPLICATION 01 */}
+        {/* Logistics deployment */}
         <div className="xai-app-row">
           <div className="xai-app-copy">
-            <span className="xai-app-num">DEPLOYMENT // 01</span>
             <h3>Continuous state reconstruction in complex spaces</h3>
             <p>
               Autonomous mobile equipment operating in crowded logistics facilities requires
@@ -287,10 +278,9 @@ export function PhysicalAIPage() {
           </div>
         </div>
 
-        {/* APPLICATION 02 */}
+        {/* Robotic inspection */}
         <div className="xai-app-row xai-app-row-reverse">
           <div className="xai-app-copy">
-            <span className="xai-app-num">DEPLOYMENT // 02</span>
             <h3>Dynamic object manipulation and physical inspection</h3>
             <p>
               Combining real-time visual feedback with physical affordance memory allows robotic
@@ -320,10 +310,9 @@ export function PhysicalAIPage() {
         </div>
       </section>
 
-      {/* SAFETY & OPERATIONAL BOUNDARIES */}
+      {/* Safety and operational boundaries */}
       <section className="xai-section" id="safety">
         <div className="xai-section-title-wrap">
-          <span className="xai-section-tag">05 / Safety</span>
           <h2>Defined operational boundaries</h2>
           <p>
             Physical systems require bounded behavior. Statistical inferences are validated
@@ -333,7 +322,6 @@ export function PhysicalAIPage() {
 
         <div className="xai-safety-grid">
           <div className="xai-safety-card">
-            <span className="xai-card-num">01</span>
             <h3>Defined Limits</h3>
             <p>
               Candidate plans are checked against explicit geometric and operational boundaries
@@ -341,7 +329,6 @@ export function PhysicalAIPage() {
             </p>
           </div>
           <div className="xai-safety-card">
-            <span className="xai-card-num">02</span>
             <h3>Bounded Fallback</h3>
             <p>
               If perception certainty drops below required margins, deterministic fail-safe states
@@ -349,7 +336,6 @@ export function PhysicalAIPage() {
             </p>
           </div>
           <div className="xai-safety-card">
-            <span className="xai-card-num">03</span>
             <h3>Human Oversight</h3>
             <p>
               Supervisory handoffs and auditable logs ensure human operators retain full operational
@@ -357,7 +343,6 @@ export function PhysicalAIPage() {
             </p>
           </div>
           <div className="xai-safety-card">
-            <span className="xai-card-num">04</span>
             <h3>Continuous Monitoring</h3>
             <p>
               Sensor health, calibration drift, and state discrepancies are continuously diagnosed
@@ -367,6 +352,39 @@ export function PhysicalAIPage() {
         </div>
       </section>
 
+      {/* PANORAMIC CLOSING CALLOUT WITH PLANETARY SCALE & MASCOT */}
+      <section className="xai-contact-section" id="contact">
+        <div className="xai-contact-bg-wrap">
+          <img
+            src="/images/deryk-earth-background.png"
+            alt="Physical AI World"
+            width={1400}
+            height={600}
+            className="xai-contact-bg"
+          />
+        </div>
+        <div className="xai-contact-inner">
+          <div className="xai-contact-mascot-wrap">
+            <img
+              src="/images/deryk-mascot-chibi-clean.png"
+              alt="DERYK Mascot"
+              width={240}
+              height={327}
+              className="xai-contact-mascot-img"
+            />
+          </div>
+          <h2>Bring intelligence closer to the physical world.</h2>
+          <p>
+            Connect with our engineering team to explore how physical AI fits into your operational
+            environment.
+          </p>
+          <div className="xai-contact-actions">
+            <a href="mailto:contact@deryk.ai" className="xai-btn xai-btn-primary">
+              Contact DERYK
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

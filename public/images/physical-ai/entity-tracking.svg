@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" fill="none">
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1">
+      <stop stop-color="#1c1e19"/>
+      <stop offset="1" stop-color="#131510"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h600v360H0z"/>
+  <g stroke="#777b64" stroke-opacity=".25">
+    <path d="M0 290h600M0 315h600M80 190v170m110-170v170m110-170v170m110-170v170m110-170v170"/>
+    <path d="m30 290 270-93 270 93M80 315l220-76 220 76"/>
+  </g>
+  <path d="M68 252c80-36 87-114 177-102s91 99 177 74 82-58 123-82" stroke="#aaa687" stroke-opacity=".75" stroke-width="2" stroke-dasharray="7 8">
+    <animate attributeName="stroke-dashoffset" from="0" to="-60" dur="7s" repeatCount="indefinite"/>
+  </path>
+  <g fill="#1b1d18" stroke="#96947a" stroke-width="2">
+    <circle cx="90" cy="239" r="13"/>
+    <circle cx="235" cy="151" r="13"/>
+    <circle cx="422" cy="224" r="13"/>
+    <circle cx="541" cy="145" r="13"/>
+  </g>
+  <g fill="#c6c09c">
+    <circle cx="90" cy="239" r="4"/>
+    <circle cx="235" cy="151" r="4"/>
+    <circle cx="422" cy="224" r="4"/>
+    <circle cx="541" cy="145" r="4"/>
+  </g>
+  <g fill="#303329" stroke="#aaa687" stroke-opacity=".7">
+    <path d="m278 226 22-17 22 17v36h-44z"/>
+    <path d="m286 208 14-22 14 22z"/>
+    <path d="m288 239 12-10 12 10"/>
+  </g>
+  <g fill="#bdb797" fill-opacity=".18" stroke="#aaa687" stroke-opacity=".35">
+    <path d="m109 244 18-14 18 14v29h-36z"/>
+    <path d="m464 208 18-14 18 14v29h-36z"/>
+  </g>
+  <circle cx="300" cy="238" r="34" stroke="#c6c09c" stroke-opacity=".3">
+    <animate attributeName="r" values="28;44;28" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values=".55;.12;.55" dur="6s" repeatCount="indefinite"/>
+  </circle>
+</svg>

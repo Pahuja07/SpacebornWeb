@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 
 interface PipelineStage {
     id: string;
-    stepNumber: string;
     shortTag: string;
     title: string;
     desc: string;
@@ -10,29 +9,25 @@ interface PipelineStage {
 
 const pipelineStages: PipelineStage[] = [
     {
-        id: "STAGE 01 // INGRESS",
-        stepNumber: "01",
+        id: "STAGE // INGRESS",
         shortTag: "INGRESS",
         title: "Environment Interface",
         desc: "Explores how interfaces could connect simulated or physical environments to shared-memory data paths for exchanging observations and actions.",
     },
     {
-        id: "STAGE 02 // KERNEL",
-        stepNumber: "02",
+        id: "STAGE // KERNEL",
         shortTag: "KERNEL",
         title: "Runtime Engine",
         desc: "Considers how state synchronization, tick coordination, rollback, and scheduling could support repeatable evaluations across different systems.",
     },
     {
-        id: "STAGE 03 // INFERENCE",
-        stepNumber: "03",
+        id: "STAGE // INFERENCE",
         shortTag: "INFERENCE",
         title: "AI Services Pool",
         desc: "Explores model orchestration, multimodal perception, and policy evaluation as components of a reusable AI services layer.",
     },
     {
-        id: "STAGE 04 // EGRESS",
-        stepNumber: "04",
+        id: "STAGE // EGRESS",
         shortTag: "EGRESS",
         title: "Gateway & Registry",
         desc: "Examines how a gateway could validate schemas, apply policy rules, and record events before passing actions to downstream systems.",
@@ -215,11 +210,12 @@ export default function ArchitectureSection() {
                             Platform Architecture Flow
                         </h2>
                         <p className="font-body text-[#94a3b8] text-base leading-relaxed">
-                        A conceptual four-stage view of how environments, runtime scheduling, and AI services could fit together.
+                            A conceptual four-stage view of how environments, runtime scheduling, and AI services could fit together.
                         </p>
                     </div>
                 </div>
 
+                {/* Top Cards (Numbers Removed) */}
                 <div className="w-full mb-10" id="pipeline-stepper">
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                         {pipelineStages.map((p, idx) => {
@@ -235,10 +231,7 @@ export default function ArchitectureSection() {
                                         : "border border-purple-900/40 bg-[#0e0e14]/60 hover:bg-purple-950/30 hover:border-purple-500/40"
                                         }`}
                                 >
-                                    <div className="flex items-center justify-between font-mono text-xs mb-2">
-                                        <span className={`font-bold ${isActive ? "text-[#c084fc]" : "text-[#64748b]"}`}>
-                                            {p.stepNumber}
-                                        </span>
+                                    <div className="flex items-center justify-end font-mono text-xs mb-2">
                                         <span className={`text-[10px] tracking-wider uppercase ${isActive ? "text-purple-300 font-semibold" : "text-[#64748b]"}`}>
                                             {p.shortTag}
                                         </span>
@@ -270,6 +263,7 @@ export default function ArchitectureSection() {
                         </div>
                     </div>
 
+                    {/* Right Columnar Cards (Numbers Removed) */}
                     <div className="lg:col-span-5 flex flex-col space-y-3 justify-between">
                         <button
                             type="button"
@@ -281,9 +275,6 @@ export default function ArchitectureSection() {
                                 }`}
                         >
                             <div className="flex items-center gap-3">
-                                <span className="w-7 h-7 rounded-lg bg-purple-950/50 border border-purple-800/40 text-[#c084fc] font-bold text-xs flex items-center justify-center">
-                                    01
-                                </span>
                                 <div>
                                     <div className="text-white text-xs font-bold font-sans">
                                         Environment Interface
@@ -303,9 +294,6 @@ export default function ArchitectureSection() {
                                 }`}
                         >
                             <div className="flex items-center gap-3">
-                                <span className="w-7 h-7 rounded-lg bg-purple-950/50 border border-purple-800/40 text-[#c084fc] font-bold text-xs flex items-center justify-center">
-                                    02
-                                </span>
                                 <div>
                                     <div className="text-white text-xs font-bold font-sans">
                                         Runtime Coordination
@@ -325,9 +313,6 @@ export default function ArchitectureSection() {
                                 }`}
                         >
                             <div className="flex items-center gap-3">
-                                <span className="w-7 h-7 rounded-lg bg-purple-950/50 border border-purple-800/40 text-[#c084fc] font-bold text-xs flex items-center justify-center">
-                                    03
-                                </span>
                                 <div>
                                     <div className="text-white text-xs font-bold font-sans">
                                         AI Services
@@ -347,9 +332,6 @@ export default function ArchitectureSection() {
                                 }`}
                         >
                             <div className="flex items-center gap-3">
-                                <span className="w-7 h-7 rounded-lg bg-purple-950/50 border border-purple-800/40 text-[#c084fc] font-bold text-xs flex items-center justify-center">
-                                    04
-                                </span>
                                 <div>
                                     <div className="text-white text-xs font-bold font-sans">
                                         Gateway &amp; Policy

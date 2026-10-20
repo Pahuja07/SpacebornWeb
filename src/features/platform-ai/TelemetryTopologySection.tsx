@@ -179,7 +179,6 @@ export default function TelemetryTopologySection() {
                         <div className="space-y-3">
                             <div className="flex items-center justify-between font-mono text-xs text-[#a1a1aa] pb-2 border-b border-purple-900/40">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-[#c084fc] font-bold">01</span>
                                     <span className="text-purple-300 font-semibold tracking-wider">
                                         INGRESS
                                     </span>
@@ -199,7 +198,6 @@ export default function TelemetryTopologySection() {
                         <div className="space-y-3">
                             <div className="flex items-center justify-between font-mono text-xs text-[#a1a1aa] pb-2 border-b border-purple-900/40">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-[#c084fc] font-bold">02</span>
                                     <span className="text-purple-300 font-semibold tracking-wider">
                                         KERNEL
                                     </span>
@@ -219,7 +217,6 @@ export default function TelemetryTopologySection() {
                         <div className="space-y-3">
                             <div className="flex items-center justify-between font-mono text-xs text-[#a1a1aa] pb-2 border-b border-purple-900/40">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-[#c084fc] font-bold">03</span>
                                     <span className="text-purple-300 font-semibold tracking-wider">
                                         INFERENCE
                                     </span>
@@ -239,7 +236,6 @@ export default function TelemetryTopologySection() {
                         <div className="space-y-3">
                             <div className="flex items-center justify-between font-mono text-xs text-[#a1a1aa] pb-2 border-b border-purple-900/40">
                                 <div className="flex items-center gap-2">
-                                    <span className="text-[#c084fc] font-bold">04</span>
                                     <span className="text-purple-300 font-semibold tracking-wider">
                                         EGRESS
                                     </span>

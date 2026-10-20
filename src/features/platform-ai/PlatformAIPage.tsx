@@ -2,6 +2,7 @@ import HeroSection from "./HeroSection";
 import PillarsSection from "./PillarsSection";
 import ArchitectureSection from "./ArchitectureSection";
 import TelemetryTopologySection from "./TelemetryTopologySection";
+import "./platform-ai.css";
 
 export function PlatformAIPage() {
     return (

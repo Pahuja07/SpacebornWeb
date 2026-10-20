@@ -96,12 +96,14 @@ export function PhysicalAIPage() {
       {/* Hero */}
       <section className="xai-hero">
         <div className="xai-hero-bg-wrap" aria-hidden="true">
-          <img
-            src="/gifs/physical-ai-hero.gif"
-            alt="Physical AI Spatial SLAM and Predictive Motion Telemetry"
-            className="xai-hero-bg-img"
-          />
-          <div className="xai-hero-bg-overlay" />
+          <picture>
+            <source srcSet="/gifs/physical-ai-hero.webp" type="image/webp" />
+            <img
+              src="/gifs/physical-ai-hero.gif"
+              alt="Physical AI Isometric Spatial Architecture"
+              className="xai-hero-bg-img"
+            />
+          </picture>
         </div>
 
         <div className="xai-hero-inner">

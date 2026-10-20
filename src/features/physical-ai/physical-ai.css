@@ -128,10 +128,10 @@
   top: 0;
   bottom: 0;
   right: 0;
-  left: 38%;
+  left: 36%;
   z-index: 1;
   pointer-events: none;
-  overflow: hidden;
+  overflow: visible;
   background: transparent;
   display: flex;
   align-items: center;
@@ -140,21 +140,18 @@
 
 .xai-hero-bg-img,
 .xai-hero-bg-video {
-  width: 92%;
-  height: 92%;
-  max-height: 580px;
+  width: 95%;
+  height: 95%;
+  max-height: 600px;
   object-fit: contain;
   object-position: center center;
   opacity: 1;
-  filter: drop-shadow(0 0 50px rgba(157, 92, 230, 0.5));
+  mix-blend-mode: screen;
+  background: transparent;
 }
 
 .xai-hero-bg-overlay {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.8) 8%, rgba(0, 0, 0, 0.02) 40%, transparent 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 35%, rgba(0, 0, 0, 0.4) 90%, #000000 100%);
+  display: none;
 }
 
 .xai-hero-inner {

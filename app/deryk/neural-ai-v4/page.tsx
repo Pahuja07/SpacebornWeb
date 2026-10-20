@@ -33,7 +33,7 @@ import {
 const pipelineStages = [
   {
     id: 'signals',
-    number: '01',
+    number: '1',
     label: 'SIGNALS',
     shortTitle: 'Raw Ingestion',
     title: 'High-entropy measured data enters the research pipeline.',
@@ -53,7 +53,7 @@ const pipelineStages = [
   },
   {
     id: 'representation',
-    number: '02',
+    number: '2',
     label: 'REPRESENTATION',
     shortTitle: 'Latent Structuring',
     title: 'Signal structure translated into learned latent geometry.',
@@ -73,7 +73,7 @@ const pipelineStages = [
   },
   {
     id: 'inference',
-    number: '03',
+    number: '3',
     label: 'SPECIALISED INFERENCE',
     shortTitle: 'Targeted Hypothesis',
     title: 'Narrow, domain-specific inductive biases under inquiry.',
@@ -93,7 +93,7 @@ const pipelineStages = [
   },
   {
     id: 'evaluation',
-    number: '04',
+    number: '4',
     label: 'EVALUATION',
     shortTitle: 'Baseline Validation',
     title: 'Rigorous comparative assessment against established baselines.',
@@ -158,19 +158,19 @@ const investigationAreas = [
 
 const methodologySteps = [
   {
-    num: '01',
+    num: '1',
     tag: 'INGESTION',
     title: 'Multi-Modal Signal Conditioning',
     copy: 'Raw time-series data is ingested without synthetic distortion, establishing a verifiable sensory baseline.',
   },
   {
-    num: '02',
+    num: '2',
     tag: 'PROJECTION',
     title: 'Topological Latent Projection',
     copy: 'Continuous signal states are translated into high-dimensional geometric manifolds for representation analysis.',
   },
   {
-    num: '03',
+    num: '3',
     tag: 'HYPOTHESIS',
     title: 'Bounded Model Inference',
     copy: 'Specialized inductive biases operate strictly within defined domain boundaries to test specific physical questions.',
@@ -538,7 +538,7 @@ export default function NeuralAIPageV4() {
           <div className="neural-v4-pipeline-detail-card" id="neural-v4-stage-detail-panel" role="tabpanel">
             <div className="neural-v4-pipeline-detail-left">
               <span className="neural-v4-section-kicker" style={{ marginBottom: 6 }}>
-                ACTIVE STAGE INSPECTOR &bull; {stage.number} / {stage.label}
+                ACTIVE STAGE INSPECTOR &bull; {stage.number} - {stage.label}
               </span>
               <h3>{stage.title}</h3>
               <p className="lead">{stage.lead}</p>
@@ -689,7 +689,7 @@ export default function NeuralAIPageV4() {
                 onClick={() => setMethodologyLayer(idx)}
               >
                 <div className="neural-v4-methodology-step-head">
-                  <span className="num">LAYER {step.num} / {step.tag}</span>
+                  <span className="num">LAYER {step.num} - {step.tag}</span>
                   <ChevronRight size={14} style={{ color: 'var(--v4-purple-bright)' }} />
                 </div>
                 <h4>{step.title}</h4>
@@ -779,19 +779,19 @@ export default function NeuralAIPageV4() {
 
           <div className="neural-v4-horizon-flow" aria-label="Research Horizon Roadmap">
             <div className="neural-v4-horizon-step">
-              <span className="step-no">HORIZON 01</span>
+              <span className="step-no">HORIZON 1</span>
               <h4>Neural AI Research</h4>
               <p>Theoretical inquiry & baseline evaluation</p>
             </div>
             <ArrowRight className="neural-v4-horizon-arrow" size={18} />
             <div className="neural-v4-horizon-step">
-              <span className="step-no">HORIZON 02</span>
+              <span className="step-no">HORIZON 2</span>
               <h4>Validated Discovery</h4>
               <p>Peer-audited capability & invariant proofs</p>
             </div>
             <ArrowRight className="neural-v4-horizon-arrow" size={18} />
             <div className="neural-v4-horizon-step">
-              <span className="step-no">HORIZON 03</span>
+              <span className="step-no">HORIZON 3</span>
               <h4>Platform AI Access</h4>
               <p>Potential substrate integration boundary</p>
             </div>
@@ -824,28 +824,28 @@ export default function NeuralAIPageV4() {
             className={`neural-v4-dock-link ${activeNavSection === 'question' ? 'active' : ''}`}
             onClick={() => handleDockClick('question')}
           >
-            01 QUESTION &rarr;
+            1 - QUESTION &rarr;
           </button>
           <button
             type="button"
             className={`neural-v4-dock-link ${activeNavSection === 'pipeline' ? 'active' : ''}`}
             onClick={() => handleDockClick('pipeline')}
           >
-            02 PIPELINE &rarr;
+            2 - PIPELINE &rarr;
           </button>
           <button
             type="button"
             className={`neural-v4-dock-link ${activeNavSection === 'investigation' ? 'active' : ''}`}
             onClick={() => handleDockClick('investigation')}
           >
-            03 INVESTIGATION &rarr;
+            3 - INVESTIGATION &rarr;
           </button>
           <button
             type="button"
             className={`neural-v4-dock-link ${activeNavSection === 'status' ? 'active' : ''}`}
             onClick={() => handleDockClick('status')}
           >
-            04 STATUS &rarr;
+            4 - STATUS &rarr;
           </button>
         </div>
       </div>

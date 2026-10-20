@@ -1,6 +1,20 @@
-.gaming-ai-frame {
-  display: block;
-  width: 100%;
-  min-height: 100vh;
-  border: 0;
-}
+.gaming-ai-root{--v4-purple:#a855f7;--v4-purple-bright:#d8b4fe;--v4-purple-deep:#6d28d9;--v4-purple-glow:rgba(168,85,247,.42);background:#05030a}
+.gaming-ai-root .neural-v4-atmosphere::before{background:radial-gradient(circle,rgba(126,34,206,.3),rgba(88,28,135,.08) 52%,transparent 80%)}
+.gaming-ai-root .neural-v4-atmosphere::after{background:radial-gradient(circle,rgba(192,132,252,.2),rgba(126,34,206,.08) 42%,transparent 75%)}
+.gaming-ai-root .neural-v4-grid-overlay{background-image:linear-gradient(to right,rgba(168,85,247,.07) 1px,transparent 1px),linear-gradient(to bottom,rgba(168,85,247,.07) 1px,transparent 1px)}
+.gaming-ai-hero{min-height:min(850px,calc(100vh - 72px))}
+.gaming-ai-kicker,.gaming-ai-subtitle{color:var(--v4-purple-bright);font-family:var(--v4-font-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.gaming-ai-mascot-card{position:relative;min-height:430px;height:clamp(430px,58vh,620px);display:grid;place-items:center;overflow:hidden;border-color:rgba(192,132,252,.5);background:radial-gradient(circle at center,rgba(126,34,206,.32),#06040a 68%);box-shadow:0 0 70px rgba(126,34,206,.28),inset 0 0 60px rgba(168,85,247,.12)}
+.gaming-ai-mascot-card::before{display:none}
+.gaming-ai-mascot-card img{position:relative;z-index:1;width:min(82%,390px);max-height:410px;object-fit:contain;mix-blend-mode:screen;filter:drop-shadow(0 0 26px rgba(197,140,255,.8));animation:gaming-mascot-float 4s ease-in-out infinite}
+.gaming-ai-scanline{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,transparent 0%,rgba(216,180,254,.22) 48%,transparent 52%);background-size:100% 220%;animation:gaming-scan 3.8s linear infinite;mix-blend-mode:screen}
+.gaming-ai-root .neural-v4-comparison-panel,.gaming-ai-root .neural-v4-pipeline-detail-card,.gaming-ai-root .neural-v4-area-card,.gaming-ai-root .neural-v4-status-card{border-color:rgba(168,85,247,.28);box-shadow:0 0 32px rgba(88,28,135,.16)}
+.gaming-ai-root .neural-v4-comparison-panel:hover,.gaming-ai-root .neural-v4-pipeline-detail-card:hover,.gaming-ai-root .neural-v4-area-card:hover,.gaming-ai-root .neural-v4-status-card:hover{border-color:rgba(216,180,254,.68);box-shadow:0 0 38px rgba(168,85,247,.3)}
+.gaming-ai-root .neural-v4-area-visual,.gaming-ai-root .neural-v4-stage-mini-visual{background:radial-gradient(circle,rgba(126,34,206,.26),rgba(8,5,14,.92));border-color:rgba(168,85,247,.32)}
+.gaming-ai-status-dot{color:#d8b4fe;text-shadow:0 0 12px #a855f7}.gaming-ai-closing{background:radial-gradient(circle at center,rgba(126,34,206,.3),#05030a 68%)}
+@keyframes gaming-ring{to{transform:rotate(360deg) scaleX(.72)}}
+@keyframes gaming-mascot-float{0%,100%{transform:translateY(8px) scale(.98)}50%{transform:translateY(-12px) scale(1.03)}}
+@keyframes gaming-scan{from{background-position:0 -100%}to{background-position:0 100%}}
+@media(max-width:760px){.gaming-ai-mascot-card{min-height:330px}.gaming-ai-mascot-card img{max-height:320px}}
+.gaming-ai-hero-animation{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}.gaming-ai-hero-animation canvas{display:block;width:100%;height:100%;opacity:1;filter:saturate(1.55) contrast(1.15) drop-shadow(0 0 18px rgba(168,85,247,.5))}.gaming-ai-mascot-card .gaming-ai-scanline{z-index:3}.gaming-ai-world-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:stretch}.gaming-ai-world-story,.gaming-ai-world-panel{border:1px solid rgba(168,85,247,.28);background:linear-gradient(145deg,rgba(32,15,50,.8),rgba(7,4,13,.95));padding:32px;box-shadow:0 0 32px rgba(88,28,135,.16)}.gaming-ai-world-story h3{margin:18px 0 16px;color:#fff;font-size:clamp(28px,4vw,48px);line-height:1.08}.gaming-ai-world-story p{color:rgba(255,255,255,.68);margin:0 0 18px;max-width:520px}.gaming-ai-world-panel{display:grid;gap:14px;position:relative;overflow:hidden}.gaming-ai-world-panel::before{content:'';position:absolute;inset:-35%;border:1px solid rgba(197,140,255,.28);border-radius:50%;animation:gaming-ring 12s linear infinite}.gaming-ai-world-orbit,.gaming-ai-world-event{position:relative;z-index:1;display:flex;gap:12px;align-items:center}.gaming-ai-world-orbit{color:#d8b4fe;font-family:var(--v4-font-mono);letter-spacing:.16em;font-size:11px;padding-bottom:16px;border-bottom:1px solid rgba(168,85,247,.22)}.gaming-ai-world-event{display:grid;grid-template-columns:1fr;gap:4px;padding:16px;border-left:2px solid #a855f7;background:rgba(168,85,247,.08)}.gaming-ai-world-event span{color:#d8b4fe;font:11px var(--v4-font-mono);letter-spacing:.14em}.gaming-ai-world-event strong{color:#fff;font-size:16px}.gaming-ai-world-event small{color:rgba(255,255,255,.55)}
+@media(max-width:760px){.gaming-ai-mascot-card{height:clamp(340px,72vw,460px);min-height:340px}.gaming-ai-world-grid{grid-template-columns:1fr}.gaming-ai-world-story,.gaming-ai-world-panel{padding:24px}}

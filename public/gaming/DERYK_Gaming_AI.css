@@ -46,3 +46,28 @@ footer .w{display:flex;justify-content:space-between;align-items:center;flex-wra
 @media(max-width:900px){.hero,.two,.dep{grid-template-columns:1fr;gap:36px}.links{display:none}.g4{grid-template-columns:repeat(2,1fr)}.dep:nth-of-type(even) .art{order:0}#c{opacity:.55}}
 @media(max-width:560px){.g2,.g4{grid-template-columns:1fr}section{padding:80px 0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* DERYK black-and-purple visual system */
+:root{--bg:#05030a;--panel:#120b1d;--line:rgba(190,125,255,.34);--tx:#fbf7ff;--mut:#c9b8dc;--dim:#a58abf;--acc:#c58cff;--amb:#efc6ff}
+html{background:#05030a}
+body{background:radial-gradient(circle at 78% 8%,rgba(122,39,196,.3),transparent 32%),radial-gradient(circle at 12% 88%,rgba(83,21,130,.24),transparent 36%),linear-gradient(180deg,#090510 0%,#05030a 58%,#10071a 100%);color:var(--tx)}
+nav{background:rgba(5,3,10,.9);border-color:var(--line);box-shadow:0 8px 32px rgba(67,15,110,.2)}
+.links a:hover,.logo:hover{color:#fff;text-shadow:0 0 14px rgba(197,140,255,.9)}
+.ct,.btn.p{background:linear-gradient(135deg,#c58cff,#7f35c8);border-color:#d9b0ff;color:#13091e;box-shadow:0 0 28px rgba(170,83,255,.46)}
+.ct:hover,.btn.p:hover{filter:brightness(1.15);box-shadow:0 0 38px rgba(197,140,255,.72)}
+.hero::after{background:linear-gradient(100deg,transparent,rgba(197,140,255,.4),transparent);animation-duration:5s}
+#c canvas{opacity:1;filter:saturate(1.8) contrast(1.2) drop-shadow(0 0 16px rgba(168,75,255,.45))}
+section{background:linear-gradient(180deg,rgba(116,48,170,.18),transparent 42%);border-color:var(--line)}
+.art{background-color:#160b22;border-color:rgba(197,140,255,.52);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 28px rgba(113,38,166,.28)}
+.art::before{background:#e8caff;box-shadow:0 0 22px 9px rgba(197,140,255,.78);animation-duration:1.8s}
+.art::after{border-color:rgba(219,170,255,.42);animation-duration:6s}
+.card{background:linear-gradient(150deg,rgba(92,37,132,.35),rgba(18,11,29,.96) 52%,rgba(6,3,12,.98));border-color:rgba(190,125,255,.32);box-shadow:0 12px 32px rgba(35,8,55,.28)}
+.card:hover{border-color:#d9aaff;box-shadow:0 0 34px rgba(168,75,255,.36);transform:translateY(-5px)}
+.contact-section{overflow:hidden;background:radial-gradient(circle at 80% 50%,rgba(139,54,203,.28),transparent 38%),linear-gradient(180deg,rgba(113,40,165,.2),transparent)}
+.contact-grid{display:grid;grid-template-columns:1fr .8fr;align-items:center;gap:70px}
+.contact-mascot{margin:0;justify-self:center;position:relative;max-width:360px;filter:drop-shadow(0 0 24px rgba(187,104,255,.62));animation:mascot-float 4s ease-in-out infinite}
+.contact-mascot::before{content:"";position:absolute;inset:16% 12%;border:1px solid rgba(217,170,255,.42);border-radius:50%;box-shadow:0 0 32px rgba(197,140,255,.28);animation:mascot-ring 5s linear infinite}
+.contact-mascot img{display:block;width:100%;height:auto;mix-blend-mode:screen;border-radius:18px}
+@keyframes mascot-float{0%,100%{transform:translateY(8px) scale(.98)}50%{transform:translateY(-12px) scale(1.02)}}
+@keyframes mascot-ring{to{transform:rotate(360deg) scaleX(.7)}}
+@media(max-width:760px){.contact-grid{grid-template-columns:1fr;gap:30px}.contact-mascot{max-width:290px}}

@@ -95,20 +95,15 @@ export function PhysicalAIPage() {
     <div className="xai-page" id="top">
       {/* Hero */}
       <section className="xai-hero">
-        <div className="xai-hero-bg-video-wrap" aria-hidden="true">
-          <video
-            key="hero-bg-video-player"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="xai-hero-bg-video"
-            poster="/images/deryk-hero-world.png"
-          >
-            <source src="/videos/hero-custom.mp4" type="video/mp4" />
-            <source src="/images/deryk-areas-background.mp4" type="video/mp4" />
-          </video>
-          <div className="xai-hero-bg-overlay" />
+        <div className="xai-hero-bg-wrap" aria-hidden="true">
+          <picture>
+            <source srcSet="/gifs/physical-ai-hero.webp" type="image/webp" />
+            <img
+              src="/gifs/physical-ai-hero.gif"
+              alt="Physical AI Isometric Spatial Architecture"
+              className="xai-hero-bg-img"
+            />
+          </picture>
         </div>
 
         <div className="xai-hero-inner">
@@ -352,39 +347,6 @@ export function PhysicalAIPage() {
         </div>
       </section>
 
-      {/* PANORAMIC CLOSING CALLOUT WITH PLANETARY SCALE & MASCOT */}
-      <section className="xai-contact-section" id="contact">
-        <div className="xai-contact-bg-wrap">
-          <img
-            src="/images/deryk-earth-background.png"
-            alt="Physical AI World"
-            width={1400}
-            height={600}
-            className="xai-contact-bg"
-          />
-        </div>
-        <div className="xai-contact-inner">
-          <div className="xai-contact-mascot-wrap">
-            <img
-              src="/images/deryk-mascot-chibi-clean.png"
-              alt="DERYK Mascot"
-              width={240}
-              height={327}
-              className="xai-contact-mascot-img"
-            />
-          </div>
-          <h2>Bring intelligence closer to the physical world.</h2>
-          <p>
-            Connect with our engineering team to explore how physical AI fits into your operational
-            environment.
-          </p>
-          <div className="xai-contact-actions">
-            <a href="mailto:contact@deryk.ai" className="xai-btn xai-btn-primary">
-              Contact DERYK
-            </a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
